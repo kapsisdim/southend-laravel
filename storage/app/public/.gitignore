@@ -1,2 +1,7 @@
 *
 !.gitignore
+
+!images
+!images/*
+!images/products_dummy
+!images/products_dummy/*

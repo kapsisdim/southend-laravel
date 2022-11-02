@@ -11,7 +11,7 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
+mix.js("resources/js/index.js", "public/js")
     .sass("resources/scss/app.scss", "public/css")
     .browserSync({
         proxy: process.env.MIX_APP_URL,
@@ -31,5 +31,3 @@ mix.webpackConfig((webpack) => {
         ],
     };
 });
-
-mix.copyDirectory('resources/fonts', 'public/fonts');
