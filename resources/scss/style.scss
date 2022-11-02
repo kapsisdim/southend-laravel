@@ -1,0 +1,720 @@
+/* sm: '640px', // landscape mobile
+md: '768px', // tablet
+lg: '1024px', // laptop
+xl: '1440px', // desktop */
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@700&display=swap');
+
+:root{
+    --white:#fff;
+    --black-light:#222;
+    --smoke-white:#f1f3f5;
+    --orange:#e94c34;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    color: white;
+}
+
+header {
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+li {
+    list-style: none;
+    transition: 0.3s ease;
+
+}
+
+li a, a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: var(--orange);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.font-anek {
+    font-family: 'Anek Telugu', sans-serif;
+}
+
+.header-item {
+    flex-grow: 1;
+    padding-top: 10px;
+}
+
+.logo:hover {
+    color: var(--orange);
+}
+
+.logo {
+    color: white;
+    padding-inline: 12px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-self-start {
+    justify-self: start;
+}
+
+.justify-self-end {
+    justify-self: end;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+#social-media {
+    color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding: 20px;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.fas {
+    font-size: 20px;
+    padding: 12px;
+}
+
+.fab {
+    font-size: 40px;
+    padding: 6px;
+}
+
+.breadcrumb {
+    font-family: 'Anek Telugu', sans-serif;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    font-size: 25px;
+    padding-bottom: 25px;
+    margin: auto;
+    max-width: 1440px;
+}
+
+.main-container {
+    background-color: #222;
+    padding: 30px;
+}
+
+.main-content {
+    margin: auto;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-section {
+    background-color: black;
+    max-width: 1440px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filters {
+    font-family: 'Anek Telugu', sans-serif;
+    letter-spacing: 0.2em;
+    padding-top: 30px;
+    background-color: black;
+    width: 20%;
+    margin-right: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-header {
+    font-size: 18px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.filters > a > div {
+    font-size: 16px;
+    margin: 20px 40px;
+}
+
+.pro {
+    width: 25%;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 0px 1px #222;
+    box-sizing: border-box;
+    /* margin: 45px 14px 10px 14px; */
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.pro img {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(0.75);
+    z-index: 0;
+}
+
+.pro:hover img {
+    transform: scale(0.9);
+}
+
+.pro .des h5 {
+    margin-block: 10px;
+    color: white;
+    font-size: 18px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+
+.pro .des h4 {
+    margin-block: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Anek Telugu', sans-serif;
+}
+
+.pro img {
+    width: 100%;
+    z-index: 0;
+}
+
+.price, .pro-form {
+    font-size: 28px;
+    font-family: 'Anek Telugu', sans-serif;
+    margin-bottom: 20px;
+}
+
+.pro-form {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+#navbar-desktop li:not(:first-child) {
+    padding-inline: 20px;
+}
+
+#navbar-desktop li:first-child {
+    padding-right: 20px;
+    margin-left: 12px;
+}
+
+#navbar-desktop {
+    font-family: 'Anek Telugu', sans-serif;
+    letter-spacing: 0.2em;
+    position: relative;
+}
+
+#navbar-mobile {
+    display: none;
+}
+
+#footer {
+    max-width: 1440px;
+    padding: 20px;
+    margin: auto;
+}
+
+#footer div {
+    padding-left: 12px;
+    padding-right: 6px;
+}
+
+#footer-menu li a {
+    font-size: 12px;
+    padding-inline: 10px;
+}
+
+#mobile {
+    display: none;
+}
+
+.hero img {
+    max-width: 1480px;
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+.drop-down-button:hover .drop-down {
+    display: block;
+}
+
+.drop-down:before {
+    content: '';
+    display: block;
+    margin: auto;
+    width: inherit;
+    height: 24px;
+    background-color: black;
+}
+
+.drop-down {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.drop-down div {
+    padding: 20px 20px;
+}
+
+.drop-down a {
+    color: #222;
+}
+
+.drop-down a:hover .submenu-link{
+    background-color: #222;
+    color: white;
+}
+
+.drop-down:hover .drop-down {
+    display: block;
+}
+
+.drop-down-button:has(> div:hover) .active{
+    color: #e94c34;
+}
+
+.mini-cart {
+    display: none;
+}
+#cart-container {
+    position: relative;
+}
+
+#cart-container:hover .mini-cart {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    min-width: 200px;
+    padding: 12px 20px 10px 20px;
+    background-color: white;
+    color: #222;
+}
+
+.price, .pro-form {
+    font-size: 28px;
+    font-family: 'Anek Telugu', sans-serif;
+    margin-bottom: 20px;
+}
+
+.pro-form {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+#description {
+    margin-left: 30px;
+}
+
+#description p {
+    font-weight: 400;
+    color: black;
+    font-size: 18px;
+}
+
+.protitle {
+    margin-bottom: 30px;
+}
+
+.protitle h1 {
+    margin-bottom: 10px;
+}
+
+.protitle h6 {
+    font-size: 14px;
+    font-weight: 300;
+    color: #465b52;
+}
+
+.selector{
+    position:relative;
+    width:60%;
+    max-width: 200px;
+    background-color:var(--smoke-white);
+    height:40px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-radius: 4px;
+    margin-bottom: 40px;
+    box-shadow:0 0 16px rgba(0,0,0,.2);
+}
+.selecotr-item{
+    position:relative;
+    flex-basis:calc(70% / 4);
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.selector-item_radio{
+    appearance:none;
+    display:none;
+}
+.selector-item_label{
+    position:relative;
+    height:80%;
+    width:100%;
+    text-align:center;
+    border-radius:4px;
+    line-height:35px;
+    font-weight:900;
+    transition-duration:.5s;
+    transition-property:transform, color, box-shadow;
+    color: #222;
+    transform:none;
+}
+.selector-item_radio:checked + .selector-item_label{
+    background-color:black;
+    color:var(--white);
+    box-shadow:0 0 4px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.5);
+    transform:translateY(-2px);
+}
+
+.teaser {
+    display: flex;
+    width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+
+input[type=number] {
+	-moz-appearance: textfield;
+	font-family: 'Roboto', sans-serif;
+    padding: 0;
+}
+
+/*Code*/
+.wrapper {
+    box-shadow:0 0 16px rgba(0,0,0,.2);
+    display: flex;
+	height: 40px;
+    background-color:var(--smoke-white);
+	width: 140px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: #222;
+    border-radius: 4px;
+    padding: 17px 60px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  }
+
+  .btn span {
+    position: relative;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: var(--orange);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-90%) translateY(-25%) rotate(45deg);
+    transform: translateX(-90%) translateY(-20%) rotate(45deg);
+  }
+
+  .btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+
+#quantity {
+	height: 40px;
+    background-color:var(--smoke-white);
+	border: none;
+	font-size: 20px;
+	color: #434343;
+	text-align: center;
+	width: calc(100% - 80px);
+	font-weight: bold;
+    font-size: 16px;
+}
+
+#cart-form {
+    margin-bottom: 60px;
+}
+
+.input-button {
+    margin: 0;
+	height: 40px;
+	width: 40px;
+	color: #959595;
+	text-align: center;
+	line-height: 45px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.input-button:hover {
+    background: #222;
+}
+
+.input-button .add {
+    border-radius: 0 4px 0 0;
+}
+
+.input-button .remove {
+    border-radius: 0 0 4px 0;
+}
+
+@media (max-width:1023px) {
+    #navbar-desktop {
+        display: none;
+    }
+
+    header div:first-child {
+        justify-content: space-between;
+    }
+
+    .header-item {
+        flex-grow: 0;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    .hero {
+        margin-bottom: 40px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    #mobile {
+        display: block;
+        align-self: center;
+    }
+
+    #mobile i {
+        padding: 12px 13px;
+        color: white;
+        font-size: 20px;
+    }
+
+    #overlay.sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        opacity: 0.5;
+        filter: blur(10px);
+        -webkit-filter: blur(10px);
+        -moz-filter: blur(10px);
+        -o-filter: blur(10px);
+        -ms-filter: blur(10px);
+        transition: .4s ease-in-out;
+        z-index: 0;
+    }
+
+    #overlay {
+    transition: .4s ease-in-out;
+    }
+
+    #navbar-mobile {
+        position: absolute;
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        width: 40%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-color: black;
+        font-family: 'Anek Telugu', sans-serif;
+        letter-spacing: 0.2em;
+        z-index: 2;
+        padding: 30px;
+        display: block;
+    }
+
+    .slide-in {
+        animation: slide-in 0.5s forwards;
+        -webkit-animation: slide-in 0.5s forwards;
+    }
+
+    .slide-out {
+        animation: slide-out 0.5s forwards;
+        -webkit-animation: slide-out 0.5s forwards;
+    }
+
+    @keyframes slide-in {
+        100% { transform: translateX(0%); }
+    }
+
+    @-webkit-keyframes slide-in {
+        100% { -webkit-transform: translateX(0%); }
+    }
+
+    @keyframes slide-out {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    @-webkit-keyframes slide-out {
+        0% { -webkit-transform: translateX(0%); }
+        100% { -webkit-transform: translateX(-100%); }
+    }
+
+    .no-scroll {
+        overflow: hidden;
+    }
+
+    #navbar-mobile li {
+        padding-block: 10px;
+    }
+
+    #navbar-mobile li:first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    #footer div {
+        padding-inline: 0px;
+    }
+
+    #social-media {
+        margin-bottom: 20px;
+    }
+
+    #footer-menu {
+        margin-top: 40px;
+        padding: 0;
+    }
+
+    #footer-menu li a {
+        font-size: 16px;
+        padding-block: 10px;
+    }
+
+    .social-con {
+        display: block;
+    }
+
+    .footer-sitemap {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .filters {
+        display: none;
+    }
+
+    .main-section {
+        width: 100%;
+    }
+
+    .pro {
+        min-width: 175px;
+    }
+
+    .main-container {
+        background-color: #222;
+        padding: 35px 20px;
+    }
+
+    .teaser {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 150px;
+    }
+
+    #description {
+        margin-inline: 10px;
+        max-width: 1000px;
+    }
+}
+
+@media (max-width:640px) {
+    #navbar-mobile.active {
+        width: 60%;
+    }
+    .main-container {
+        background-color: #222;
+        padding: 35px 10px;
+    }
+}
+
+@media (max-width:739px) {
+    .pro {
+        width: 33.3%;
+    }
+}
+
+@media (max-width:544px) {
+    .pro {
+        width: 50%;
+    }
+}
+
+@media (max-width:369px) {
+    .pro {
+        width: 100%;
+    }
+}
