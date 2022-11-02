@@ -20,4 +20,5 @@ Route::group([
     Route::crud('menu-items', 'MenuItemCrudController');
     Route::crud('categories', 'CategoryCrudController');
     Route::crud('collections', 'CollectionCrudController');
+    Route::crud('info', 'InfoCrudController');
 }); // this should be the absolute last line of this file
