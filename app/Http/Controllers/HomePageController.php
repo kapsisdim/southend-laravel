@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Social;
+
 class HomePageController extends Controller
 {
     /**
@@ -9,6 +11,7 @@ class HomePageController extends Controller
      */
     public function index()
     {
+        $socials = Social::orderBy('lft', 'asc')->get();
         return view('index', [
         ]);
     }
