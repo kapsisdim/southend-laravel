@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Social;
+use App\Models\MenuItem;
 
 class HomePageController extends Controller
 {
