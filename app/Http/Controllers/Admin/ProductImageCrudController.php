@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\ProductImageRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class Category.
+ * Class ProductImage.
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CategoryCrudController extends CrudController
+class ProductImageCrudController extends CrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -26,9 +24,9 @@ class CategoryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Category::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/categories');
-        CRUD::setEntityNameStrings('Category', 'Categories');
+        CRUD::setModel(\App\Models\ProductImage::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/product-images');
+        CRUD::setEntityNameStrings('Product Image', 'Product Images');
     }
 
     /**
@@ -39,7 +37,14 @@ class CategoryCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
+        CRUD::addcolumn('title');
+        CRUD::addField([
+            'label' => 'Image',
+            'name' => 'image',
+            'type' => 'image',
+            'crop' => true,
+            'aspect_ratio' => 0,
+        ]);
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -56,9 +61,18 @@ class CategoryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CategoryRequest::class);
+        CRUD::setValidation(ProductImageRequest::class);
 
-        CRUD::field('title');
+        CRUD::addField('title');
+        CRUD::addField([
+            'label'        => "Product Image",
+            'name'         => "image",
+            'filename'     => "image_filename", // set to null if not needed
+            'type'         => 'base64_image',
+            'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
+            'crop'         => true, // set to true to allow cropping, false to disable
+            'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
+        ]);
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:
@@ -76,14 +90,5 @@ class CategoryCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function setupReorderOperation()
-    {
-        // define which model attribute will be shown on draggable elements
-        CRUD::set('reorder.label', 'title');
-        // define how deep the admin is allowed to nest the items
-        // for infinite levels, set it to 0
-        CRUD::set('reorder.max_level', 2);
     }
 }

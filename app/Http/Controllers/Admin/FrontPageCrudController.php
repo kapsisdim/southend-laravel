@@ -68,14 +68,14 @@ class FrontPageCrudController extends CrudController
         CRUD::setValidation(FrontPageRequest::class);
 
         CRUD::field('title');
-        $this->crud->addField([
+        CRUD::addField([
             'label' => 'Logo Image',
             'name' => 'logo_image',
             'type' => 'image',
             'crop' => true,
             'aspect_ratio' => 0,
         ]);
-        $this->crud->addField([
+        CRUD::addField([
             'label' => 'Main Image',
             'name' => 'main_image',
             'type' => 'image',
