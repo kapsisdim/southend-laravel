@@ -41,7 +41,6 @@ class ProductCrudController extends CrudController
     {
         CRUD::addcolumn('title');
         CRUD::addcolumn('price');
-        CRUD::addcolumn('images');
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
