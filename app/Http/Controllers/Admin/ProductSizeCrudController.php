@@ -16,7 +16,6 @@ class ProductSizeCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -38,7 +37,7 @@ class ProductSizeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        $this->crud->addcolumn([
+        CRUD::addcolumn([
           'name' => 'size',
           'label' => 'Type',
           'type' => 'select_from_array',
@@ -70,7 +69,7 @@ class ProductSizeCrudController extends CrudController
     {
         CRUD::setValidation(ProductSizeRequest::class);
 
-        $this->crud->addField([
+        CRUD::addField([
           'name' => 'size',
           'label' => 'Type',
           'type' => 'select_from_array',
