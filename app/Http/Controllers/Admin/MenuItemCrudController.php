@@ -61,7 +61,7 @@ class MenuItemCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::field('link');
-        $this->crud->addField([   // Checkbox
+        CRUD::addField([   // Checkbox
             'name'  => 'main_menu',
             'label' => 'Main Menu',
             'type'  => 'checkbox'
@@ -88,9 +88,9 @@ class MenuItemCrudController extends CrudController
     protected function setupReorderOperation()
     {
         // define which model attribute will be shown on draggable elements
-        $this->crud->set('reorder.label', 'title');
+        CRUD::set('reorder.label', 'title');
         // define how deep the admin is allowed to nest the items
         // for infinite levels, set it to 0
-        $this->crud->set('reorder.max_level', 2);
+        CRUD::set('reorder.max_level', 2);
     }
 }

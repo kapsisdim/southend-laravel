@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\ProductSizeRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class Category.
+ * Class ProductSize.
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CategoryCrudController extends CrudController
+class ProductSizeCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -26,9 +24,9 @@ class CategoryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Category::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/categories');
-        CRUD::setEntityNameStrings('Category', 'Categories');
+        CRUD::setModel(\App\Models\ProductSize::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/product-sizes');
+        CRUD::setEntityNameStrings('Product Size', 'Product Sizes');
     }
 
     /**
@@ -39,7 +37,20 @@ class CategoryCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('title');
+        CRUD::addcolumn([
+          'name' => 'size',
+          'label' => 'Type',
+          'type' => 'select_from_array',
+          'options' => [
+                'xs' => 'XS',
+                's' => 'S',
+                'm' => 'M',
+                'l' => 'L',
+                'xl' => 'XL',
+                'xxl' => 'XXL',
+                'one_size' => 'One Size',
+          ]
+      ]);
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -56,9 +67,22 @@ class CategoryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(CategoryRequest::class);
+        CRUD::setValidation(ProductSizeRequest::class);
 
-        CRUD::field('title');
+        CRUD::addField([
+          'name' => 'size',
+          'label' => 'Type',
+          'type' => 'select_from_array',
+          'options' => [
+            'xs' => 'XS',
+            's' => 'S',
+            'm' => 'M',
+            'l' => 'L',
+            'xl' => 'XL',
+            'xxl' => 'XXL',
+            'one_size' => 'One Size',
+          ]
+      ]);
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:
@@ -76,14 +100,5 @@ class CategoryCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function setupReorderOperation()
-    {
-        // define which model attribute will be shown on draggable elements
-        CRUD::set('reorder.label', 'title');
-        // define how deep the admin is allowed to nest the items
-        // for infinite levels, set it to 0
-        CRUD::set('reorder.max_level', 2);
     }
 }

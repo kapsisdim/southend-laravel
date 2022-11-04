@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Info extends Model
+class About extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
@@ -19,10 +19,10 @@ class Info extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'address',
-        'city',
-        'phone',
-        'email',
+        'title',
+        'subtitle',
+        'body',
+        'image',
     ];
 
     protected $hidden = [
@@ -30,5 +30,4 @@ class Info extends Model
         'created_at',
         'updated_at',
     ];
-
 }
