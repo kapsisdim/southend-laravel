@@ -13,3 +13,5 @@
 </li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="la la-info"></i></i> Info</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('socials') }}"><i class="la la-share"></i></i> Social</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('about') }}"><i class="la la-info-circle"></i></i> About Page</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('terms') }}"><i class="la la-file-text"></i></i> Legal Terms</a></li>
