@@ -39,8 +39,40 @@ class ProductCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addcolumn([
+            'label' => 'Main Image',
+            'name' => 'images',
+            'type' => 'customImage',
+            'crop' => true,
+            'aspect_ratio' => 0,
+        ]);
+
         CRUD::addcolumn('title');
         CRUD::addcolumn('price');
+        CRUD::addcolumn([
+            'name' => 'discount',
+            'label' => 'Discount %',
+            'type' => 'text',
+        ]);
+        CRUD::addColumn([
+            'name' => 'condition',
+            'label' => 'Condition',
+            'type' => 'select_from_array',
+            'options'       => [
+                'default'   => 'Default',
+                'new' => 'New',
+                'hot'        => 'Hot',
+            ]
+        ]);
+        CRUD::addColumn([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'options'       => [
+                1   => 'Active',
+                0 => 'In active',
+            ]
+        ]);
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -60,7 +92,31 @@ class ProductCrudController extends CrudController
         CRUD::setValidation(ProductRequest::class);
 
         CRUD::addField('title');
+        CRUD::addField([
+            'name' => 'condition',
+            'label' => 'Condition',
+            'type' => 'select_from_array',
+            'options'       => [
+                'default'   => 'Default',
+                'new' => 'New',
+                'hot'        => 'Hot',
+            ]
+        ]);
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'options'       => [
+                1   => 'Active',
+                0 => 'In active',
+            ]
+        ]);
         CRUD::addField('price');
+        CRUD::addField([
+            'name' => 'discount',
+            'label' => 'Discount %',
+            'type' => 'text',
+        ]);
         CRUD::addField('sku');
         CRUD::addField(
             [
