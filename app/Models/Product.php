@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     /*
     |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ class Product extends Model
         'price',
         'description',
         'body',
+        'slug',
+        'status',
+        'condition',
+        'discount',
     ];
 
     protected $hidden = [
@@ -36,6 +41,20 @@ class Product extends Model
     protected $casts = [
         'images' => 'json',
     ];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ],
+        ];
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
