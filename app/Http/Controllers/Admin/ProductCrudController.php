@@ -92,6 +92,25 @@ class ProductCrudController extends CrudController
         CRUD::setValidation(ProductRequest::class);
 
         CRUD::addField('title');
+        CRUD::addField([
+            'name' => 'condition',
+            'label' => 'Condition',
+            'type' => 'select_from_array',
+            'options'       => [
+                'default'   => 'Default',
+                'new' => 'New',
+                'hot'        => 'Hot',
+            ]
+        ]);
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'options'       => [
+                'active'   => 'Active',
+                'inactive' => 'In active',
+            ]
+        ]);
         CRUD::addField('price');
         CRUD::addField([
             'name' => 'discount',
@@ -172,25 +191,6 @@ class ProductCrudController extends CrudController
                 'autoGrow_minHeight'   => 200,
                 'autoGrow_bottomSpace' => 50,
                 'removePlugins'        => 'resize,maximize',
-            ]
-        ]);
-        CRUD::addField([
-            'name' => 'condition',
-            'label' => 'Condition',
-            'type' => 'select_from_array',
-            'options'       => [
-                'default'   => 'Default',
-                'new' => 'New',
-                'hot'        => 'Hot',
-            ]
-        ]);
-        CRUD::addField([
-            'name' => 'status',
-            'label' => 'Status',
-            'type' => 'select_from_array',
-            'options'       => [
-                'active'   => 'Active',
-                'inactive' => 'In active',
             ]
         ]);
 
