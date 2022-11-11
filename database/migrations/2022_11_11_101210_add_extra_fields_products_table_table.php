@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->string('slug')->after('price')->unique();
             $table->float('discount')->nullabale()->after('price');
-            $table->enum('status',['active','inactive'])->default('active')->after('price');
+            $table->boolean('status')->default(1)->after('price');
             $table->enum('condition',['default','new','hot'])->default('default')->after('price');
         });
     }

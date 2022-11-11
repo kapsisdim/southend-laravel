@@ -69,8 +69,8 @@ class ProductCrudController extends CrudController
             'label' => 'Status',
             'type' => 'select_from_array',
             'options'       => [
-                'active'   => 'Active',
-                'inactive' => 'In active',
+                1   => 'Active',
+                0 => 'In active',
             ]
         ]);
 
@@ -107,8 +107,8 @@ class ProductCrudController extends CrudController
             'label' => 'Status',
             'type' => 'select_from_array',
             'options'       => [
-                'active'   => 'Active',
-                'inactive' => 'In active',
+                1   => 'Active',
+                0 => 'In active',
             ]
         ]);
         CRUD::addField('price');
