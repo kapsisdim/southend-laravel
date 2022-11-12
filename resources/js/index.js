@@ -3,7 +3,7 @@ const close = document.getElementById('close');
 const nav = document.getElementById('navbar-mobile');
 const overlay = document.getElementById('overlay');
 
-if (bar) {
+if (nav) {
     bar.addEventListener('click', (e) => {
         overlay.classList.add('sidebar');
         nav.setAttribute('class', 'slide-in');
@@ -11,10 +11,11 @@ if (bar) {
     })
 
     document.addEventListener('click', (e) => {
-        if (!bar.contains(e.target)) {
-            overlay.classList.remove('sidebar');
-            nav.setAttribute('class', 'slide-out');
-            document.body.classList.remove('no-scroll');
+        if (!document.body.contains(e.target)) {
+            console.log('hi')
+            // overlay.classList.remove('sidebar');
+            // nav.setAttribute('class', 'slide-out');
+            // document.body.classList.remove('no-scroll');
         }
     })
 
@@ -57,17 +58,17 @@ if (close) {
 
 // SplideJS Slider. See full docs at:
 // https://splidejs.com/
-document.addEventListener('DOMContentLoaded', function () {
-    var splide = new Splide('.splide', {
-      type         : 'loop',
-      perPage      : 1,
-      autoplay     : false,
-      interval     : 15000, // How long to display each slide
-      pauseOnHover : false, // must be false
-      pauseOnFocus : false, // must be false
-      resetProgress: false,
-      classes: {
-        pagination: 'splide__pagination splide__custom',
-      }
-    }).mount();
-  });
+// document.addEventListener('DOMContentLoaded', function () {
+//     var splide = new Splide('.splide', {
+//       type         : 'loop',
+//       perPage      : 1,
+//       autoplay     : false,
+//       interval     : 15000, // How long to display each slide
+//       pauseOnHover : false, // must be false
+//       pauseOnFocus : false, // must be false
+//       resetProgress: false,
+//       classes: {
+//         pagination: 'splide__pagination splide__custom',
+//       }
+//     }).mount();
+//   });

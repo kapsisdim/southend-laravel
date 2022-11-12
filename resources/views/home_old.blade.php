@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Southend Apparel</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
 </head>
 <body>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="header-item">
                     <a href="home.html">
-                        <img src="../images/logo.svg" alt="logo" width="250" class="logo">
+                        <img src="/storage/images/logo.svg" alt="logo" width="250" class="logo">
                     </a>
                 </div>
                 <div class="justify-self-end flex align-center">
@@ -47,7 +47,7 @@
         </header>
 
         <section class="hero">
-            <img src="../images/home.png" alt="hero-image">
+            <img src="/storage/images/home.png" alt="hero-image">
         </section>
 
         <footer id="footer">
@@ -80,6 +80,6 @@
         <li><a href="about.html">ABOUT</a></li>
         <li><a href="contact.html">CONTACT</a></li>
     </div>
-    <script src="../src/css/style.css"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 </body>
 </html>

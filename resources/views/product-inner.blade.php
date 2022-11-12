@@ -1,157 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Southend Apparel</title>
-    <link rel="stylesheet" href="../src/css/style.css">
-    <link rel="stylesheet" href="../src/css/carousel.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/css/splide.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-</head>
-<body>
-    <div id="overlay">
-        <header>
-            <div class="container flex">
-                <div id="mobile">
-                    <i id="bars" class="fa fa-bars"></i>
-                </div>
-                <div class="header-item">
-                    <a href="home.html">
-                        <img src="../images/logo.svg" alt="logo" width="250" class="logo">
-                    </a>
-                </div>
-                <div class="justify-self-end flex align-center">
-                    <li><a ><i href="search.html" class="fas fa-search"></i></a></li>
-                    <li id="cart-container">
-                        <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                        <div class="mini-cart font-anek">
-                            Your shopping cart is empty!
-                        </div>
-                    </li>
-                </div>
-            </div>
-            <div class="container flex" id="navbar-desktop">
-                <li class="drop-down-button">
-                    <a class="active" href="shop.html">SHOP</a>
-                    <div class="drop-down">
-                        <a href=""><div class="submenu-link">Category 1</div></a>
-                        <a href=""><div class="submenu-link">Category 2</div></a>
-                        <a href=""><div class="submenu-link">Category 3</div></a>
-                        <a href=""><div class="submenu-link">Category 4</div></a>
-                    </div>
-                </li>
-                <li><a href="collections.html">COLLECTIONS</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </div>
-        </header>
+@extends('layouts.app')
 
-        <section class="main-container">
-            <div class="container bg-black">
-                <div class="teaser">
-                    <div class="splide">
-                        <div class="splide__track" id="splide-track">
+@push('styles')
+<link href="../css/app.css" rel="stylesheet" />
+<link href="../css/carousel.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/css/splide.min.css">
+@endpush
+
+@section('content')
+<section class="bg-[#222] py-35 px-20">
+    <div class="container bg-black text-white mx-auto px-20 pb-50 md:pb-30">
+        <div class="text-center mb-60 pt-40 font-anek tracking-[0.2em]">
+            <h1 class="text-2xl mb-10 font-semibold">TITLE 1</h1>
+            <div class="price">$20.00</div>
+        </div>
+        <div class="flex md:flex-row flex-col w-full">
+            <div class="md:w-1/2 w-full">
+                <section id="main-carousel" class="splide mb-20" aria-label="Beautiful Images">
+                    <div class="splide__track">
+                        <div class="splide__list">
+                            <li class="splide__slide">
+                                <img src="../images/products_dummy/1.jpeg" alt="image1" >
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../images/products_dummy/2.jpeg" alt="image2" >
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../images/products_dummy/3.jpeg" alt="image3" >
+                            </li>
+                            <li class="splide__slide">
+                                <img src="../images/products_dummy/2.jpeg" alt="image2" >
+                            </li>
+                        </div>
+                    </div>
+                </section>
+                <section id="thumbnail-carousel" class="splide" aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel.">
+                    <div class="splide__track">
                             <ul class="splide__list">
                                 <li class="splide__slide">
-                                    <img src="../images/products_dummy/1.jpeg" alt="image1">
+                                    <img src="../images/products_dummy/1.jpeg" alt="image1" >
                                 </li>
-
                                 <li class="splide__slide">
-                                    <img src="../images/products_dummy/2.jpeg" alt="image2">
+                                    <img src="../images/products_dummy/2.jpeg" alt="image2" >
                                 </li>
-
                                 <li class="splide__slide">
-                                    <img src="../images/products_dummy/3.jpeg" alt="image3">
+                                    <img src="../images/products_dummy/3.jpeg" alt="image3" >
                                 </li>
-
                                 <li class="splide__slide">
-                                    <img src="../images/products_dummy/4.jpeg" alt="image4">
+                                    <img src="../images/products_dummy/2.jpeg" alt="image2" >
                                 </li>
-
-                            </ul> <!-- /.splide__list -->
-                        </div> <!-- /.splide__track -->
-                    </div> <!-- /.splide -->
-                    <div id="description">
-                        <div class="protitle">
-                            <h1>TITLE 1</h1>
-                            <h6 class="font-anek">SKU: 12345</h6>
-                        </div>
-
-                        <div class="price">$20.00</div>
-
-                        <div class="font-anek">
-                            <form action="" id="cart-form">
-                                <h3 class="pro-form">Select Size</h3>
-                                <div class="selector">
-                                    <div class="selecotr-item">
-                                        <input type="radio" name="size" id="S" value="S" class="selector-item_radio">
-                                        <label class="selector-item_label" for="S">S</label>
-                                    </div>
-                                    <div class="selecotr-item">
-                                        <input type="radio" name="size" id="M" class="selector-item_radio" value="M">
-                                        <label class="selector-item_label" for="M">M</label>
-                                    </div>
-                                    <div class="selecotr-item">
-                                        <input type="radio" name="size" id="L" class="selector-item_radio"value="L">
-                                        <label class="selector-item_label" for="L">L</label>
-                                    </div>
-                                    <div class="selecotr-item">
-                                        <input type="radio" name="size" id="XL" class="selector-item_radio"value="XL">
-                                        <label class="selector-item_label" for="XL">XL</label>
-                                    </div>
-                                </div>
-                                <h3 class="pro-form">Quantity</h3>
-                                <div class="wrapper">
-                                    <h3 class="input-button remove">-</h3>
-                                    <input type="number" value="1" name="quantity" id="quantity">
-                                    <h3 class="input-button add">+</h3>
-                                </div>
-                                <button class="btn"><span>Add to cart</span></button>
-                            </form>
-                        </div>
-
-                        <p class="font-anek">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quaerat doloribus nesciunt amet, laboriosam vero deleniti cum dolorem similique cupiditate ipsa totam pariatur voluptatum fuga harum asperiores qui. Facilis, quam.</p>
-
+                            </ul>
                     </div>
+                </section>
+            </div>
+
+            <div class="md:ml-30 mt-30 md:mt-0">
+                <div class="font-anek">
+                    <p class="text-justify font-anek mt-0 mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quaerat doloribus nesciunt amet, laboriosam vero deleniti cum dolorem similique cupiditate ipsa totam pariatur voluptatum fuga harum asperiores qui. Facilis, quam.</p>
+                    <form action="" id="cart-form">
+                        <h3 class="mt-0 text-lg font-anek mb-8">Select Size</h3>
+                        <div class="selector w-full">
+                            <div class="selecotr-item w-40">
+                                <input type="radio" name="size" id="S" value="S" class="selector-item-radio">
+                                <label class="selector-item-label" for="S">S</label>
+                            </div>
+                            <div class="selecotr-item w-40">
+                                <input type="radio" name="size" id="M" class="selector-item-radio" value="M">
+                                <label class="selector-item-label" for="M">M</label>
+                            </div>
+                            <div class="selecotr-item w-40">
+                                <input type="radio" name="size" id="L" class="selector-item-radio"value="L">
+                                <label class="selector-item-label" for="L">L</label>
+                            </div>
+                            <div class="selecotr-item w-40">
+                                <input type="radio" name="size" id="XL" class="selector-item-radio"value="XL">
+                                <label class="selector-item-label" for="XL">XL</label>
+                            </div>
+                        </div>
+                        <h3 class="text-lg mb-8">Quantity</h3>
+                        <div class="wrapper">
+                            <h3 class="input-button remove">-</h3>
+                            <input type="number" value="1" name="quantity" id="quantity">
+                            <h3 class="input-button add">+</h3>
+                        </div>
+                        <button class="btn-add-to-cart"><span>Add to cart</span></button>
+                    </form>
                 </div>
             </div>
-        </section>
-
-        <footer id="footer">
-            <div class="flex justify-space-between social-con font-anek">
-                <h3 class="center">SOUTHEND APPAREL</h3>
-                <div id="social-media" class="flex justify-center">
-                    <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                    <a href="https://www.instagram.com/southend_apparel/" target="_blank"><i class="fab fa-instagram-square"></i></a>
-                </div>
-            </div>
-            <div class="font-anek center">Omirou 3, Argyroupoli</div>
-            <div class="font-anek border-bottom center">Athens 16451</div>
-            <div class="flex justify-space-between footer-sitemap">
-                <h6 class="font-anek">@ SOUTHEND APPAREL 2022</h6>
-                <ul id="footer-menu" class="flex font-anek">
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="terms.html">TERMS</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                </ul>
-            </div>
-        </footer>
+        </div>
     </div>
-    <div class="container flex" id="navbar-mobile">
-        <li>
-            <h3>MENU</h3>
-            <i id="close" class="fas fa-times"></i>
-        </li>
-        <li><a href="shop.html">SHOP</a></li>
-        <li><a href="collections.html">COLLECTIONS</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-    </div>
+</section>
+@endsection
 
-    <script src="../src/js/index.js"></script>
-    <script src="../src/js/carousel.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/js/splide.min.js"></script>
-</body>
-</html>
+@push('scripts')
+<script src="../js/carousel.js"></script>
+<script src="../js/cart-form.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.15/dist/js/splide.min.js"></script>
+@endpush
