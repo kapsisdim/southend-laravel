@@ -9,7 +9,7 @@
 @section('content')
 <section class="bg-[#222] py-35 px-20">
     <div class="container bg-black text-white mx-auto px-20 pb-50 md:pb-30">
-        <div class="text-center mb-60 pt-40 font-anek tracking-[0.2em]">
+        <div class="text-center lg:mb-40 mb-30 pt-40 font-anek tracking-[0.2em]">
             <h1 class="text-2xl mb-10 font-semibold">TITLE 1</h1>
             <div class="price">$20.00</div>
         </div>

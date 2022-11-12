@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="bg-[#222] py-35 px-20">
-    <div class="font-anek tracking-[0.2em] font-bold text-[25px] pb-25 m-auto max-w-[1440px] text-white">SHOPPING CART</div>
-    <div class="m-auto max-w-[1440px] bg-black">
-
+    <div class="font-anek tracking-[0.2em] font-bold text-[25px] pb-25 m-auto container text-white">SHOPPING CART</div>
+    <div class="m-auto container bg-black">
         <div class="justify-between font-anek spacing-2 hidden lg:flex text-white border-b border-[#222] flex-grow p-20 tracking-[0.2em]">
             <div class="xl:w-3/5 w-2/5">PRODUCT</div>
             <div class="xl:w-1/10 w-1/5 flex-1 text-center">PRICE</div>
