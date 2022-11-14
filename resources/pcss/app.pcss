@@ -1,0 +1,379 @@
+@import 'tailwindcss/base';
+@import 'base.pcss';
+@import 'tailwindcss/components';
+@import 'components.pcss';
+@import 'tailwindcss/utilities';
+@import 'components.pcss';
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@700&display=swap');
+
+@layer base {
+
+    $white: #fff;
+    $black-light: #222;
+    $smoke-white: #f1f3f5;
+    $orange: #e94c34;
+
+    html {
+        background-color: black;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        padding: 0px;
+        &:hover {
+            color: $orange;
+            cursor: pointer;
+        }
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+    }
+
+    nav ul li {
+        padding: 15px 15px 20px;
+        font-family: 'Anek Telugu', sans-serif;
+        letter-spacing: 0.2em;
+        position: relative;
+
+        &:hover {
+            color: $orange;
+            cursor: pointer;
+        }
+
+        ul {
+            background-color: black;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            transition: all 0.5s ease;
+            margin-top: 20px;
+            left: 0;
+            display: none;
+            color: white;
+            width: max-content;
+            block-size: max-content;
+            min-width: 150px;
+            border: 1px solid $black-light;
+        }
+        &:hover > ul,
+        ul:hover {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+        }
+
+        ul li {
+            clear: both;
+            width: 100%;
+            padding: 15px 15px;
+            &:hover {
+                color: $white;
+                background-color: $black-light;
+            }
+
+            a:hover {
+                color: $white;
+            }
+        }
+    }
+
+    .no-scroll {
+        overflow: hidden;
+    }
+
+    .font-anek {
+        font-family: 'Anek Telugu', sans-serif;
+    }
+
+    .product-listing {
+        box-shadow: inset 0px 0px 0px 1px #222;
+        box-sizing: border-box;
+        transition: 0.2s ease;
+        text-align: center;
+    }
+
+     .slide-in {
+        animation: slide-in 0.5s forwards;
+        -webkit-animation: slide-in 0.5s forwards;
+    }
+
+    .slide-out {
+        animation: slide-out 0.5s forwards;
+        -webkit-animation: slide-out 0.5s forwards;
+    }
+
+    .hero img {
+        max-width: 1480px;
+        display: block;
+        width: 80%;
+        margin: auto;
+    }
+
+    .product-listing img {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(0.75);
+    z-index: 0;
+    }
+
+    .product-listing:hover img {
+        transform: scale(0.9);
+    }
+
+    .product-listing .des h5 {
+        margin-block: 10px;
+        color: white;
+        font-size: 18px;
+        font-family: 'Anek Telugu', sans-serif;
+    }
+
+    .product-listing .des h4 {
+        margin-block: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Anek Telugu', sans-serif;
+    }
+
+    .product-listing img {
+        width: 100%;
+        z-index: 0;
+    }
+    .selector{
+        position:relative;
+        max-width: 200px;
+        background-color: $smoke-white;
+        height:40px;
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        border-radius: 4px;
+        margin-bottom: 40px;
+        box-shadow:0 0 16px rgba(0,0,0,.2);
+    }
+
+    .selecotr-item {
+        position:relative;
+        flex-basis:calc(70% / 4);
+        height:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .selector-item-label:hover {
+        cursor: pointer;
+        background-color: #222;
+        color: white;
+    }
+
+    .selector-item-radio {
+        appearance:none;
+        display:none;
+    }
+
+    .selector-item-label {
+        position:relative;
+        height:80%;
+        width:100%;
+        text-align:center;
+        border-radius:4px;
+        line-height:35px;
+        font-weight:900;
+        transition-duration:.5s;
+        transition-property:transform, color, box-shadow;
+        color: #222;
+        transform:none;
+    }
+    .selector-item-radio:checked + .selector-item-label{
+        background-color:black;
+        color:var(--white);
+        box-shadow:0 0 4px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.5);
+        transform:translateY(-2px);
+    }
+
+    .btn-add-to-cart {
+        border: none;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        outline: none;
+        overflow: hidden;
+        position: relative;
+        font-weight: 700;
+        font-size: 20px;
+        background-color: #222;
+        border-radius: 4px;
+        padding: 17px 50px 10px 50px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    }
+
+    .btn-add-to-cart span {
+        position: relative;
+        color: #fff;
+        z-index: 1;
+    }
+
+    .btn-add-to-cart:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 490%;
+        width: 140%;
+        background: $orange;
+        -webkit-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+        -webkit-transform: translateX(-90%) translateY(-25%) rotate(45deg);
+        transform: translateX(-97%) translateY(-20%) rotate(45deg);
+    }
+
+    .btn-add-to-cart:hover:after {
+        -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+        transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    }
+
+    .splide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+
+    #thumbnail-carousel-list {
+        /* transform: none !important; */
+    }
+
+    .splide__slide {
+        opacity: 0.5;
+    }
+
+    .splide__slide.is-active {
+        opacity: 1;
+    }
+
+    .wrapper {
+        box-shadow:0 0 16px rgba(0,0,0,.2);
+        display: flex;
+        height: 40px;
+        background-color: $smoke-white;
+        width: 140px;
+        margin-bottom: 40px;
+    }
+
+    .filters-mobile {
+        display: flex;
+        align-items: baseline;
+        background-color: black;
+        width: fit-content;
+        padding: 5px 12px;
+        margin-bottom: 10px;
+        letter-spacing: 0.2em;
+    }
+
+    .filters-mobile div {
+        font-family: 'Anek Telugu', sans-serif;
+        padding: 1px 12px 1px 5px;
+    }
+
+    #quantity {
+        height: 40px;
+        background-color: $smoke-white;
+        border: none;
+        font-size: 20px;
+        color: #434343;
+        text-align: center;
+        width: calc(100% - 80px);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .input-button {
+        margin: 0;
+        height: 40px;
+        width: 40px;
+        color: #959595;
+        text-align: center;
+        line-height: 45px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .input-button:hover {
+        background: #222;
+        color: white;
+    }
+
+    .input-button .add {
+        border-radius: 0 4px 0 0;
+    }
+
+    .input-button .remove {
+        border-radius: 0 0 4px 0;
+    }
+    #overlay {
+    transition: .4s ease-in-out;
+    }
+
+    #navbar-mobile {
+        position: absolute;
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        width: 60%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-color: black;
+        font-family: 'Anek Telugu', sans-serif;
+        letter-spacing: 0.2em;
+        z-index: 2;
+        height: 100vh;
+        padding: 30px;
+        display: block;
+    }
+
+    #overlay.sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        opacity: 0.5;
+        filter: blur(10px);
+        -webkit-filter: blur(10px);
+        -moz-filter: blur(10px);
+        -o-filter: blur(10px);
+        -ms-filter: blur(10px);
+        transition: .4s ease-in-out;
+    }
+
+    @keyframes slide-in {
+        100% { transform: translateX(0%); }
+    }
+
+    @-webkit-keyframes slide-in {
+        100% { -webkit-transform: translateX(0%); }
+    }
+
+    @keyframes slide-out {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    @-webkit-keyframes slide-out {
+        0% { -webkit-transform: translateX(0%); }
+        100% { -webkit-transform: translateX(-100%); }
+    }
+}
