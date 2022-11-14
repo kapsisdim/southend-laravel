@@ -1,5 +1,5 @@
-<nav {{ $attributes->only('class')->merge(['class' => 'container h-auto p-10 pb-0 mx-auto items-center w-full text-white']) }}>
-    <ul class="flex">
+<nav {{ $attributes->only('class')->merge(['class' => 'container h-auto pb-0 mx-auto items-center w-full text-white justify-center']) }}>
+    <ul class="flex -mx-15">
         {{-- @foreach ($categories as $category)
         <li><a href="">{{ $category->title }}</a></li>
         @endforeach --}}
