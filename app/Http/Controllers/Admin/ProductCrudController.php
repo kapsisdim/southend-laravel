@@ -91,67 +91,68 @@ class ProductCrudController extends CrudController
     {
         CRUD::setValidation(ProductRequest::class);
 
-        CRUD::addField('title');
         CRUD::addField([
             'name' => 'condition',
             'label' => 'Condition',
             'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
             'options'       => [
                 'default'   => 'Default',
                 'new' => 'New',
                 'hot'        => 'Hot',
-            ]
+            ],
+            'tab' => 'Info',
         ]);
         CRUD::addField([
             'name' => 'status',
             'label' => 'Status',
             'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
             'options'       => [
                 1   => 'Active',
                 0 => 'In active',
-            ]
+            ],
+            'tab' => 'Info',
         ]);
-        CRUD::addField('price');
+        CRUD::addField([
+            'name' => 'title',
+            'tab' => 'Info',
+            'wrapper' => [
+                'class' => 'form-group col-md-10',
+            ],
+        ]);
+        CRUD::addField([
+            'name' => 'price',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Info',
+        ]);
         CRUD::addField([
             'name' => 'discount',
             'label' => 'Discount %',
             'type' => 'text',
-        ]);
-        CRUD::addField('sku');
-        CRUD::addField(
-            [
-                'label' => "Product Images",
-                'name' => "images",
-                'type' => 'repeatable',
-                'subfields' => [
-                    [
-                        'name'    => 'title',
-                        'type'    => 'text',
-                        'label'   => 'Image Title',
-                        'wrapper' => ['class' => 'form-group col-md-4'],
-                    ],
-                    [
-                        'name'    => 'image',
-                        'type'    => 'image',
-                        'label'   => 'Image',
-                        'crop' => true,
-                        'aspect_ratio' => 0,
-                        'wrapper' => ['class' => 'form-group col-md-4'],
-                    ],
-                    [   // Checkbox
-                        'name'  => 'main',
-                        'label' => 'Main Image',
-                        'type'  => 'checkbox'
-                    ],
-                ],
-                'reorder' => true,
-                'max_rows' => 5,
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
             ],
-        );
+            'tab' => 'Info',
+        ]);
+        CRUD::addField([
+            'name' => 'sku',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Info',
+        ]);
         CRUD::addField([
             'name' => 'description',
             'label' => 'Description',
             'type' => 'ckeditor',
+            'tab' => 'Info',
             'options'       => [
                 'autoGrow_minHeight'   => 200,
                 'autoGrow_bottomSpace' => 50,
@@ -161,6 +162,7 @@ class ProductCrudController extends CrudController
         CRUD::addField(
             [ // Select2Multiple = n-n relationship (with pivot table)
                 'label' => "Sizes",
+                'tab' => 'Storage',
                 'type' => 'relationship',
                 'name' => 'sizes', // the method that defines the relationship in your Model
                 'entity' => 'sizes', // the method that defines the relationship in your Model
@@ -187,12 +189,45 @@ class ProductCrudController extends CrudController
             'name' => 'body',
             'label' => 'Body',
             'type' => 'ckeditor',
+            'tab' => 'Info',
             'options'       => [
                 'autoGrow_minHeight'   => 200,
                 'autoGrow_bottomSpace' => 50,
                 'removePlugins'        => 'resize,maximize',
             ]
         ]);
+        CRUD::addField(
+            [
+                'label' => "Product Images",
+                'name' => "images",
+                'type' => 'repeatable',
+                'tab' => 'Images',
+                'subfields' => [
+                    [
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'label'   => 'Image Title',
+                        'wrapper' => ['class' => 'form-group col-md-4'],
+                    ],
+                    [
+                        'name'    => 'image',
+                        'type'    => 'image',
+                        'label'   => 'Image',
+                        'crop' => true,
+                        'aspect_ratio' => 0,
+                        'wrapper' => ['class' => 'form-group col-md-4'],
+                    ],
+                    [   // Checkbox
+                        'name'  => 'main',
+                        'label' => 'Main Image',
+                        'type'  => 'checkbox'
+                    ],
+                ],
+                'reorder' => true,
+                'min_rows' => 1,
+                'max_rows' => 3,
+            ],
+        );
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:
