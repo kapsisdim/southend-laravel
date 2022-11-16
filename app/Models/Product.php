@@ -68,7 +68,7 @@ class Product extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
-    public function images()
+    public function getImages()
     {
         return $this->belongsToMany(ProductImage::class, 'product_images_products');
     }

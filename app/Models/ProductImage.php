@@ -43,6 +43,14 @@ class ProductImage extends Model
         });
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
@@ -88,13 +96,5 @@ class ProductImage extends Model
             // if value isn't empty, but it's not an image, assume it's the model value for that attribute.
             $this->attributes[$attribute_name] = $this->{$attribute_name};
         }
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
-     */
-    public function products()
-    {
-        return $this->belongsToMany(Product::class);
     }
 }

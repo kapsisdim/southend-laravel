@@ -73,6 +73,11 @@ class ProductCrudController extends CrudController
                 0 => 'Unpublish',
             ]
         ]);
+        CRUD::addColumn([
+            'name' => 'stock',
+            'label' => 'Stock',
+            'type' => 'customStock',
+        ]);
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -196,30 +201,6 @@ class ProductCrudController extends CrudController
                 'removePlugins'        => 'resize,maximize',
             ]
         ]);
-        // CRUD::addField(
-        //     [ // Select2Multiple = n-n relationship (with pivot table)
-        //         'tab' => 'Images',
-        //         'label' => "Images",
-        //         'type' => 'select2_multiple',
-        //         'name' => 'images', // the method that defines the relationship in your Model
-        //         'entity' => 'images', // the method that defines the relationship in your Model
-        //         'attribute' => 'title', // foreign key attribute that is shown to user
-        //         'model' => "App\Models\ProductImage", // foreign key model
-        //         'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-        //     ]
-        // );
-        CRUD::addField(
-            [ // Select2Multiple = n-n relationship (with pivot table)
-                'tab' => 'Images',
-                'label'     => 'Images',
-                'type'      => 'checklist',
-                'name'      => 'images',
-                // 'entity'    => 'images',
-                'attribute' => 'images',
-                'model'     => "App\Models\ProductImage",
-                'pivot'     => true,
-            ]
-        );
         CRUD::addField(
             [  // Select
                 'tab' => 'Images',
@@ -235,6 +216,18 @@ class ProductCrudController extends CrudController
                 // optional - manually specify the related model and attribute
                 'model'     => "App\Models\ProductImage", // related model
                 'attribute' => 'title', // foreign key attribute that is shown to user
+            ]
+        );
+        CRUD::addField(
+            [ // Select2Multiple = n-n relationship (with pivot table)
+                'tab' => 'Images',
+                'label' => "Images",
+                'type' => 'select2_multiple',
+                'name' => 'getImages', // the method that defines the relationship in your Model
+                'entity' => 'getImages', // the method that defines the relationship in your Model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+                'model' => "App\Models\ProductImage", // foreign key model
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
             ]
         );
         // CRUD::addField(
