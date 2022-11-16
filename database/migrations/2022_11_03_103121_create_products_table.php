@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->unsignedBigInteger('list_image_id');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('collection_id');
             $table->bigInteger('sku')->nullable();
             $table->float('price', 8, 2);
             $table->string('slug')->unique();

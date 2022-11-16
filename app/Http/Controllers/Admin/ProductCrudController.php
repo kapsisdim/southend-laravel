@@ -48,6 +48,16 @@ class ProductCrudController extends CrudController
         ]);
 
         CRUD::addcolumn('title');
+        CRUD::addcolumn([
+            'name' => 'category.title',
+            'label' => 'Category',
+            'type' => 'text',
+        ]);
+        CRUD::addcolumn([
+            'name' => 'collection.title',
+            'label' => 'Collection',
+            'type' => 'text',
+        ]);
         CRUD::addcolumn('price');
         CRUD::addcolumn([
             'name' => 'discount',
@@ -65,6 +75,17 @@ class ProductCrudController extends CrudController
             ]
         ]);
         CRUD::addColumn([
+            'name' => 'size',
+            'label' => 'Sizes',
+            'type' => 'customSize',
+        ]);
+        CRUD::addColumn([
+            'name' => 'stock',
+            'label' => 'Stock',
+            'type' => 'customStock',
+            'escaped' => false
+        ]);
+        CRUD::addColumn([
             'name' => 'status',
             'label' => 'Status',
             'type' => 'select_from_array',
@@ -73,11 +94,6 @@ class ProductCrudController extends CrudController
                 0 => '<span class="badge badge-error">Unpublished</span>',
             ],
             'escaped' => false
-        ]);
-        CRUD::addColumn([
-            'name' => 'stock',
-            'label' => 'Stock',
-            'type' => 'customStock',
         ]);
 
         /*
@@ -131,6 +147,46 @@ class ProductCrudController extends CrudController
                 'class' => 'form-group col-md-10',
             ],
         ]);
+        CRUD::addField(
+            [  // Select
+                'tab' => 'Info',
+                'label'     => "Category",
+                'type'      => 'select2',
+                'name'      => 'category_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'category',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\Category", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ]
+        );
+        CRUD::addField(
+            [  // Select
+                'tab' => 'Info',
+                'label'     => "Collaction",
+                'type'      => 'select2',
+                'name'      => 'collection_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'collection',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\Collection", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ]
+        );
         CRUD::addField([
             'name' => 'price',
             'wrapper' => [
