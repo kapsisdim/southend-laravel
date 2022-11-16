@@ -40,9 +40,9 @@ class ProductCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::addcolumn([
-            'label' => 'Main Image',
-            'name' => 'images',
-            'type' => 'customImage',
+            'label' => 'List Image',
+            'name' => 'list_image.image',
+            'type' => 'image',
             'crop' => true,
             'aspect_ratio' => 0,
         ]);
@@ -69,8 +69,8 @@ class ProductCrudController extends CrudController
             'label' => 'Status',
             'type' => 'select_from_array',
             'options'       => [
-                1   => 'Active',
-                0 => 'In active',
+                1   => 'Published',
+                0 => 'Unpublish',
             ]
         ]);
 
@@ -113,8 +113,8 @@ class ProductCrudController extends CrudController
                 'class' => 'form-group col-md-3',
             ],
             'options'       => [
-                1   => 'Active',
-                0 => 'In active',
+                1   => 'Published',
+                0 => 'Unublished',
             ],
             'tab' => 'Info',
         ]);
@@ -196,38 +196,79 @@ class ProductCrudController extends CrudController
                 'removePlugins'        => 'resize,maximize',
             ]
         ]);
+        // CRUD::addField(
+        //     [ // Select2Multiple = n-n relationship (with pivot table)
+        //         'tab' => 'Images',
+        //         'label' => "Images",
+        //         'type' => 'select2_multiple',
+        //         'name' => 'images', // the method that defines the relationship in your Model
+        //         'entity' => 'images', // the method that defines the relationship in your Model
+        //         'attribute' => 'title', // foreign key attribute that is shown to user
+        //         'model' => "App\Models\ProductImage", // foreign key model
+        //         'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+        //     ]
+        // );
         CRUD::addField(
-            [
-                'label' => "Product Images",
-                'name' => "images",
-                'type' => 'repeatable',
+            [ // Select2Multiple = n-n relationship (with pivot table)
                 'tab' => 'Images',
-                'subfields' => [
-                    [
-                        'name'    => 'title',
-                        'type'    => 'text',
-                        'label'   => 'Image Title',
-                        'wrapper' => ['class' => 'form-group col-md-4'],
-                    ],
-                    [
-                        'name'    => 'image',
-                        'type'    => 'image',
-                        'label'   => 'Image',
-                        'crop' => true,
-                        'aspect_ratio' => 0,
-                        'wrapper' => ['class' => 'form-group col-md-4'],
-                    ],
-                    [   // Checkbox
-                        'name'  => 'main',
-                        'label' => 'Main Image',
-                        'type'  => 'checkbox'
-                    ],
-                ],
-                'reorder' => true,
-                'min_rows' => 1,
-                'max_rows' => 3,
-            ],
+                'label'     => 'Images',
+                'type'      => 'checklist',
+                'name'      => 'images',
+                // 'entity'    => 'images',
+                'attribute' => 'images',
+                'model'     => "App\Models\ProductImage",
+                'pivot'     => true,
+            ]
         );
+        CRUD::addField(
+            [  // Select
+                'tab' => 'Images',
+                'label'     => "List Image",
+                'type'      => 'select2',
+                'name'      => 'list_image_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'list_image',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\ProductImage", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+            ]
+        );
+        // CRUD::addField(
+        //     [
+        //         'label' => "Product Images",
+        //         'name' => "images_old",
+        //         'type' => 'repeatable',
+        //         'tab' => 'Images',
+        //         'subfields' => [
+        //             [
+        //                 'name'    => 'title',
+        //                 'type'    => 'text',
+        //                 'label'   => 'Image Title',
+        //                 'wrapper' => ['class' => 'form-group col-md-4'],
+        //             ],
+        //             [
+        //                 'name'    => 'image',
+        //                 'type'    => 'image',
+        //                 'label'   => 'Image',
+        //                 'crop' => true,
+        //                 'aspect_ratio' => 0,
+        //                 'wrapper' => ['class' => 'form-group col-md-4'],
+        //             ],
+        //             [   // Checkbox
+        //                 'name'  => 'main',
+        //                 'label' => 'Main Image',
+        //                 'type'  => 'checkbox'
+        //             ],
+        //         ],
+        //         'reorder' => true,
+        //         'min_rows' => 1,
+        //         'max_rows' => 3,
+        //     ],
+        // );
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:

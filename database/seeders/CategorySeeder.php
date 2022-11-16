@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ShippingSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,15 +16,15 @@ class ShippingSeeder extends Seeder
     {
         $data=array(
             array(
-                'title' => 'In Athens',
-                'value' => 5,
+                'title' => 'Hoodies',
+                'slug' => 'hoodies',
             ),
             array(
-                'title' => 'Out of Athens',
-                'value' => 20,
+                'title' => 'T-Shirts',
+                'slug' => 't-shirts',
             ),
         );
 
-        DB::table('shippings')->insert($data);
+        DB::table('categories')->insert($data);
     }
 }
