@@ -69,9 +69,10 @@ class ProductCrudController extends CrudController
             'label' => 'Status',
             'type' => 'select_from_array',
             'options'       => [
-                1   => 'Published',
-                0 => 'Unpublish',
-            ]
+                1   => '<span class="badge badge-success">Published</span>',
+                0 => '<span class="badge badge-error">Unpublished</span>',
+            ],
+            'escaped' => false
         ]);
         CRUD::addColumn([
             'name' => 'stock',
