@@ -21,7 +21,6 @@ class Product extends Model
 
     protected $fillable = [
         'title',
-        'images',
         'sku',
         'price',
         'description',
@@ -30,6 +29,7 @@ class Product extends Model
         'status',
         'condition',
         'discount',
+        'list_image_id',
     ];
 
     protected $hidden = [
@@ -63,5 +63,21 @@ class Product extends Model
     {
         return $this->belongsToMany(ProductSize::class, 'products_product_sizes')
             ->withPivot('amount')->orderByRaw("FIELD(size, \"xs\", \"s\", \"m\", \"l\", \"xl\", \"xxl\", \"one_size\")");
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function getImages()
+    {
+        return $this->belongsToMany(ProductImage::class, 'product_images_products');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function list_image()
+    {
+        return $this->belongsTo(ProductImage::class, 'list_image_id', 'id');
     }
 }

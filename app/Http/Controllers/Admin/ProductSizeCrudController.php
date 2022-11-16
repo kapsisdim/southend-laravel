@@ -39,7 +39,7 @@ class ProductSizeCrudController extends CrudController
     {
         CRUD::addcolumn([
           'name' => 'size',
-          'label' => 'Type',
+          'label' => 'Size',
           'type' => 'select_from_array',
           'options' => [
                 'xs' => 'XS',
