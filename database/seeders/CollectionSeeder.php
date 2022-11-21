@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ShippingSeeder extends Seeder
+class CollectionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,15 +16,15 @@ class ShippingSeeder extends Seeder
     {
         $data=array(
             array(
-                'title' => 'In Athens',
-                'value' => 5,
+                'title' => 'Summer 2022',
+                'slug' => 'summer-2022',
             ),
             array(
-                'title' => 'Out of Athens',
-                'value' => 20,
+                'title' => 'Winter 2022',
+                'slug' => 'winter-2022',
             ),
         );
 
-        DB::table('shippings')->insert($data);
+        DB::table('collections')->insert($data);
     }
 }
