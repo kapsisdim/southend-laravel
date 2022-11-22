@@ -18,10 +18,14 @@ class CollectionSeeder extends Seeder
             array(
                 'title' => 'Summer 2022',
                 'slug' => 'summer-2022',
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Winter 2022',
                 'slug' => 'winter-2022',
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 

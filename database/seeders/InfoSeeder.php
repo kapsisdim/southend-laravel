@@ -20,6 +20,8 @@ class InfoSeeder extends Seeder
                 'city' => 'Athens 16451',
                 'phone' => '6980470294',
                 'email' => 'info@southend.gr',
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 
