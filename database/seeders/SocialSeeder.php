@@ -22,6 +22,8 @@ class SocialSeeder extends Seeder
                 'lft' => 2,
                 'rgt' => 3,
                 'depth' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 

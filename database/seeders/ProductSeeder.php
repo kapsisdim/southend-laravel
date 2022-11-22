@@ -22,6 +22,8 @@ class ProductSeeder extends Seeder
                 'slug' => 'product-1',
                 'category_id' => 1,
                 'collection_id' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Product 2',
@@ -30,6 +32,8 @@ class ProductSeeder extends Seeder
                 'slug' => 'product-2',
                 'category_id' => 1,
                 'collection_id' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Product 3',
@@ -38,6 +42,8 @@ class ProductSeeder extends Seeder
                 'slug' => 'product-3',
                 'category_id' => 1,
                 'collection_id' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Product 4',
@@ -46,6 +52,8 @@ class ProductSeeder extends Seeder
                 'slug' => 'product-4',
                 'category_id' => 1,
                 'collection_id' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Product 5',
@@ -54,6 +62,8 @@ class ProductSeeder extends Seeder
                 'slug' => 'product-5',
                 'category_id' => 1,
                 'collection_id' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Product 6',
@@ -62,6 +72,8 @@ class ProductSeeder extends Seeder
                 'slug' => 'product-6',
                 'category_id' => 1,
                 'collection_id' => 1,
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 
