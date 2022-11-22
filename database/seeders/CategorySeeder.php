@@ -18,10 +18,14 @@ class CategorySeeder extends Seeder
             array(
                 'title' => 'Hoodies',
                 'slug' => 'hoodies',
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'T-Shirts',
                 'slug' => 't-shirts',
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 

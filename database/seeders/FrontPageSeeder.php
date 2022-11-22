@@ -19,6 +19,8 @@ class FrontPageSeeder extends Seeder
                 'title' => 'Southend Apparel',
                 'main_image' => '/storage/images/home.png',
                 'logo_image' => '/storage/images/logo.png',
+                'created_at' => date('y-m-d h:m:s'),
+                'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 
