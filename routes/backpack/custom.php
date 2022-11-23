@@ -29,6 +29,7 @@ Route::group([
     Route::crud('coupons', 'CouponCrudController');
     Route::crud('shipping', 'ShippingCrudController');
     Route::crud('product-images', 'ProductImageCrudController');
+    Route::crud('orders', 'OrderCrudController');
     Route::get('charts/categories', 'Charts\CategoriesChartController@response')->name('charts.categories.index');
     Route::get('charts/orders-pie', 'Charts\OrdersPieChartController@response')->name('charts.orders-pie.index');
     Route::get('charts/income', 'Charts\IncomeChartController@response')->name('charts.income.index');
