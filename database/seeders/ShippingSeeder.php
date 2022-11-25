@@ -17,13 +17,13 @@ class ShippingSeeder extends Seeder
         $data=array(
             array(
                 'title' => 'In Athens',
-                'value' => 5,
+                'cost' => 5,
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'title' => 'Out of Athens',
-                'value' => 20,
+                'cost' => 20,
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),

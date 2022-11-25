@@ -26,7 +26,7 @@ class TermRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'type' => 'required',
+            'term_type' => 'required',
             'body' => 'required',
         ];
     }

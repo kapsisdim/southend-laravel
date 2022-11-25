@@ -39,7 +39,7 @@ class TermCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::addcolumn([
-            'name' => 'type',
+            'name' => 'term_type',
             'label' => 'Type',
             'type' => 'select_from_array',
             'options' => [
@@ -78,7 +78,7 @@ class TermCrudController extends CrudController
         CRUD::setValidation(TermRequest::class);
 
         CRUD::addField([
-            'name' => 'type',
+            'name' => 'term_type',
             'label' => 'Type',
             'type' => 'select_from_array',
             'options' => [

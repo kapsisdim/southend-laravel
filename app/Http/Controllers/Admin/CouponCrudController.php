@@ -39,7 +39,7 @@ class CouponCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('code');
-        CRUD::addcolumn('value');
+        CRUD::addcolumn('discount');
         CRUD::addcolumn([
             'name' => 'type',
             'label' => 'Type',
@@ -78,9 +78,9 @@ class CouponCrudController extends CrudController
         CRUD::setValidation(CouponRequest::class);
 
         CRUD::field('code');
-        CRUD::addField('value');
+        CRUD::addField('discount');
         CRUD::addField([
-            'name' => 'type',
+            'name' => 'discount_type',
             'label' => 'Type',
             'type' => 'select_from_array',
             'options'       => [
