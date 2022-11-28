@@ -21,7 +21,6 @@ class Product extends Model
 
     protected $fillable = [
         'title',
-        'images',
         'sku',
         'price',
         'description',
@@ -30,16 +29,15 @@ class Product extends Model
         'status',
         'condition',
         'discount',
+        'list_image_id',
+        'category_id',
+        'collection_id',
     ];
 
     protected $hidden = [
         'id',
         'created_at',
         'updated_at',
-    ];
-
-    protected $casts = [
-        'images' => 'json',
     ];
 
     /**
@@ -63,5 +61,28 @@ class Product extends Model
     {
         return $this->belongsToMany(ProductSize::class, 'products_product_sizes')
             ->withPivot('amount')->orderByRaw("FIELD(size, \"xs\", \"s\", \"m\", \"l\", \"xl\", \"xxl\", \"one_size\")");
+    }
+
+    public function getImages()
+    {
+        return $this->belongsToMany(ProductImage::class, 'product_images_products');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function list_image()
+    {
+        return $this->belongsTo(ProductImage::class, 'list_image_id', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function collection()
+    {
+        return $this->belongsTo(Collection::class, 'collection_id', 'id');
     }
 }

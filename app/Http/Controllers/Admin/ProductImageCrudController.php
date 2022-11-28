@@ -12,10 +12,11 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  */
 class ProductImageCrudController extends CrudController
 {
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -37,14 +38,14 @@ class ProductImageCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addcolumn('title');
-        CRUD::addField([
+        CRUD::addColumn([
             'label' => 'Image',
             'name' => 'image',
             'type' => 'image',
             'crop' => true,
             'aspect_ratio' => 0,
         ]);
+        CRUD::column('title');
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -63,15 +64,18 @@ class ProductImageCrudController extends CrudController
     {
         CRUD::setValidation(ProductImageRequest::class);
 
-        CRUD::addField('title');
+        CRUD::addField([
+            'name' => 'title',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+        ]);
         CRUD::addField([
             'label'        => "Product Image",
             'name'         => "image",
-            'filename'     => "image_filename", // set to null if not needed
-            'type'         => 'base64_image',
+            'type'         => 'image',
             'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
             'crop'         => true, // set to true to allow cropping, false to disable
-            'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
         ]);
 
         /*

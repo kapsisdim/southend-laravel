@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ShippingSeeder extends Seeder
+class BillingAddressSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,19 +16,15 @@ class ShippingSeeder extends Seeder
     {
         $data=array(
             array(
-                'title' => 'In Athens',
-                'value' => 5,
-                'created_at' => date('y-m-d h:m:s'),
-                'updated_at' => date('y-m-d h:m:s'),
-            ),
-            array(
-                'title' => 'Out of Athens',
-                'value' => 20,
+                'address' => 'Thyras 29',
+                'ciry' => 'Argyroypoli',
+                'region' => 'Athens',
+                'post_code' => '16451',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
         );
 
-        DB::table('shippings')->insert($data);
+        DB::table('billing_addresses')->insert($data);
     }
 }

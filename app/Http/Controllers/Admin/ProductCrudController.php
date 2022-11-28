@@ -40,14 +40,24 @@ class ProductCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::addcolumn([
-            'label' => 'Main Image',
-            'name' => 'images',
-            'type' => 'customImage',
+            'label' => 'List Image',
+            'name' => 'list_image.image',
+            'type' => 'image',
             'crop' => true,
             'aspect_ratio' => 0,
         ]);
 
         CRUD::addcolumn('title');
+        CRUD::addcolumn([
+            'name' => 'category.title',
+            'label' => 'Category',
+            'type' => 'text',
+        ]);
+        CRUD::addcolumn([
+            'name' => 'collection.title',
+            'label' => 'Collection',
+            'type' => 'text',
+        ]);
         CRUD::addcolumn('price');
         CRUD::addcolumn([
             'name' => 'discount',
@@ -65,13 +75,25 @@ class ProductCrudController extends CrudController
             ]
         ]);
         CRUD::addColumn([
+            'name' => 'size',
+            'label' => 'Sizes',
+            'type' => 'customSize',
+        ]);
+        CRUD::addColumn([
+            'name' => 'stock',
+            'label' => 'Stock',
+            'type' => 'customStock',
+            'escaped' => false
+        ]);
+        CRUD::addColumn([
             'name' => 'status',
             'label' => 'Status',
             'type' => 'select_from_array',
             'options'       => [
-                1   => 'Active',
-                0 => 'In active',
-            ]
+                1   => '<span class="badge badge-success">Published</span>',
+                0 => '<span class="badge badge-error">Unpublished</span>',
+            ],
+            'escaped' => false
         ]);
 
         /*
@@ -91,67 +113,108 @@ class ProductCrudController extends CrudController
     {
         CRUD::setValidation(ProductRequest::class);
 
-        CRUD::addField('title');
         CRUD::addField([
             'name' => 'condition',
             'label' => 'Condition',
             'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
             'options'       => [
                 'default'   => 'Default',
                 'new' => 'New',
                 'hot'        => 'Hot',
-            ]
+            ],
+            'tab' => 'Info',
         ]);
         CRUD::addField([
             'name' => 'status',
             'label' => 'Status',
             'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
             'options'       => [
-                1   => 'Active',
-                0 => 'In active',
-            ]
+                1   => 'Published',
+                0 => 'Unublished',
+            ],
+            'tab' => 'Info',
         ]);
-        CRUD::addField('price');
+        CRUD::addField([
+            'name' => 'title',
+            'tab' => 'Info',
+            'wrapper' => [
+                'class' => 'form-group col-md-10',
+            ],
+        ]);
+        CRUD::addField(
+            [  // Select
+                'tab' => 'Info',
+                'label'     => "Category",
+                'type'      => 'select2',
+                'name'      => 'category_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'category',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\Category", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ]
+        );
+        CRUD::addField(
+            [  // Select
+                'tab' => 'Info',
+                'label'     => "Collaction",
+                'type'      => 'select2',
+                'name'      => 'collection_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'collection',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\Collection", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+                'wrapper' => [
+                    'class' => 'form-group col-md-6',
+                ],
+            ]
+        );
+        CRUD::addField([
+            'name' => 'price',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Info',
+        ]);
         CRUD::addField([
             'name' => 'discount',
             'label' => 'Discount %',
             'type' => 'text',
-        ]);
-        CRUD::addField('sku');
-        CRUD::addField(
-            [
-                'label' => "Product Images",
-                'name' => "images",
-                'type' => 'repeatable',
-                'subfields' => [
-                    [
-                        'name'    => 'title',
-                        'type'    => 'text',
-                        'label'   => 'Image Title',
-                        'wrapper' => ['class' => 'form-group col-md-4'],
-                    ],
-                    [
-                        'name'    => 'image',
-                        'type'    => 'image',
-                        'label'   => 'Image',
-                        'crop' => true,
-                        'aspect_ratio' => 0,
-                        'wrapper' => ['class' => 'form-group col-md-4'],
-                    ],
-                    [   // Checkbox
-                        'name'  => 'main',
-                        'label' => 'Main Image',
-                        'type'  => 'checkbox'
-                    ],
-                ],
-                'reorder' => true,
-                'max_rows' => 5,
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
             ],
-        );
+            'tab' => 'Info',
+        ]);
+        CRUD::addField([
+            'name' => 'sku',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'tab' => 'Info',
+        ]);
         CRUD::addField([
             'name' => 'description',
             'label' => 'Description',
             'type' => 'ckeditor',
+            'tab' => 'Info',
             'options'       => [
                 'autoGrow_minHeight'   => 200,
                 'autoGrow_bottomSpace' => 50,
@@ -161,6 +224,7 @@ class ProductCrudController extends CrudController
         CRUD::addField(
             [ // Select2Multiple = n-n relationship (with pivot table)
                 'label' => "Sizes",
+                'tab' => 'Storage',
                 'type' => 'relationship',
                 'name' => 'sizes', // the method that defines the relationship in your Model
                 'entity' => 'sizes', // the method that defines the relationship in your Model
@@ -187,12 +251,74 @@ class ProductCrudController extends CrudController
             'name' => 'body',
             'label' => 'Body',
             'type' => 'ckeditor',
+            'tab' => 'Info',
             'options'       => [
                 'autoGrow_minHeight'   => 200,
                 'autoGrow_bottomSpace' => 50,
                 'removePlugins'        => 'resize,maximize',
             ]
         ]);
+        CRUD::addField(
+            [  // Select
+                'tab' => 'Images',
+                'label'     => "List Image",
+                'type'      => 'select2',
+                'name'      => 'list_image_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'list_image',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\ProductImage", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+            ]
+        );
+        CRUD::addField(
+            [ // Select2Multiple = n-n relationship (with pivot table)
+                'tab' => 'Images',
+                'label' => "Images",
+                'type' => 'select2_multiple',
+                'name' => 'getImages', // the method that defines the relationship in your Model
+                'entity' => 'getImages', // the method that defines the relationship in your Model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+                'model' => "App\Models\ProductImage", // foreign key model
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+            ]
+        );
+        // CRUD::addField(
+        //     [
+        //         'label' => "Product Images",
+        //         'name' => "images_old",
+        //         'type' => 'repeatable',
+        //         'tab' => 'Images',
+        //         'subfields' => [
+        //             [
+        //                 'name'    => 'title',
+        //                 'type'    => 'text',
+        //                 'label'   => 'Image Title',
+        //                 'wrapper' => ['class' => 'form-group col-md-4'],
+        //             ],
+        //             [
+        //                 'name'    => 'image',
+        //                 'type'    => 'image',
+        //                 'label'   => 'Image',
+        //                 'crop' => true,
+        //                 'aspect_ratio' => 0,
+        //                 'wrapper' => ['class' => 'form-group col-md-4'],
+        //             ],
+        //             [   // Checkbox
+        //                 'name'  => 'main',
+        //                 'label' => 'Main Image',
+        //                 'type'  => 'checkbox'
+        //             ],
+        //         ],
+        //         'reorder' => true,
+        //         'min_rows' => 1,
+        //         'max_rows' => 3,
+        //     ],
+        // );
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:

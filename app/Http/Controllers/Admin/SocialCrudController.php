@@ -41,6 +41,13 @@ class SocialCrudController extends CrudController
     {
         CRUD::column('title');
         CRUD::column('link');
+        CRUD::addColumn(
+            [   // icon_picker
+                'label'   => "Icon",
+                'name'    => 'icon',
+                'type' => 'customIcon',
+            ],
+        );
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -61,8 +68,15 @@ class SocialCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::field('link');
-        CRUD::field('icon');
-
+        // CRUD::field('icon');
+        CRUD::addField(
+            [   // icon_picker
+                'label'   => "Icon",
+                'name'    => 'icon',
+                'type'    => 'icon_picker',
+                'iconset' => 'fontawesome' // options: fontawesome, lineawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
+            ],
+        );
         /*
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
