@@ -12,16 +12,12 @@
     <title>Southend</title>
 </head>
 <body>
+    <x-navigation-mobile class="block md:hidden"/>
     <div id="overlay">
         @yield('header')
         @yield('content')
         @yield('footer')
     </div>
-
-    <x-navigation-mobile class="block md:hidden"/>
-
-    <script src="../../js/app.js"></script>
-
     @stack('scripts')
 
 </body>

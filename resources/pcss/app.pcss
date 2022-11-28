@@ -30,6 +30,10 @@
         }
     }
 
+    input {
+        padding: 2px 12px;
+    }
+
     input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -330,11 +334,17 @@
         position: absolute;
         transform: translateX(-100%);
         -webkit-transform: translateX(-100%);
-        width: 60%;
+        background: linear-gradient(
+            to right,
+            #000000 0%,
+            #000000 60%,
+            transparent 60%,
+            transparent 100%
+        );
+        width: 100%;
         left: 0;
         top: 0;
         bottom: 0;
-        background-color: black;
         font-family: 'Anek Telugu', sans-serif;
         letter-spacing: 0.2em;
         z-index: 2;
