@@ -83,6 +83,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-black p-20 w-full">
+                    <h3 class="py-10 text-2xl border-b border-[#222]">Shipping Method</h3>
+                    <div class="pt-20">
+                        <input type="radio" id="courier" name="shipping_method" value="courier"
+                               checked>
+                        <label for="courier">Courier Service - $3.00</label>
+                    </div>
+                </div>
+
+                <div class="bg-black p-20 w-full">
+                    <h3 class="py-10 text-2xl border-b border-[#222]">Payment Method</h3>
+                    <div class="pt-20">
+                        <input type="radio" id="cash_on_delivery" name="payment_method" value="cash_on_delivery"
+                               checked>
+                        <label for="cash_on_delivery">Cash on delivery</label>
+                    </div>
+                </div>
             </div>
         </form>
         <div class="bg-black w-full mx-auto container lg:max-w-[540px] lg:order-last">
@@ -115,7 +133,7 @@
             <i class="fas fa-arrow-left mr-10"></i>
             BACK
         </a>
-        <button type="submit" form="checkout-form" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline tracking-[0.2em]">COMPLETION</button>
+        <button type="submit" form="checkout-form" class="bg-black hover:text-[#e94c34] text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline tracking-[0.2em]">COMPLETION</button>
     </div>
 </div>
 @endsection
