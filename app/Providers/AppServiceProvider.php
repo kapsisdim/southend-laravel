@@ -6,6 +6,7 @@ use App\Models\MenuItem;
 use App\Models\Info;
 use App\Models\Category;
 use App\Models\Collection;
+use App\Models\FrontPage;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
         $info = Info::first();
         $categories = Category::orderBy('lft', 'asc')->get();
         $collections = Collection::orderBy('lft', 'asc')->get();
+        $frontPage = FrontPage::first();
 
         view()->share('socials', $socials);
         view()->share('menuItems', $menuItems);
@@ -41,5 +43,6 @@ class AppServiceProvider extends ServiceProvider
         view()->share('info', $info);
         view()->share('categories', $categories);
         view()->share('collections', $collections);
+        view()->share('frontPage', $frontPage);
     }
 }

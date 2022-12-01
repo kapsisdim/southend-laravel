@@ -13,7 +13,3 @@
         </div>
     </div>
 </nav>
-
-@push('scripts')
-<script src="../js/app.js"></script>
-@endpush
