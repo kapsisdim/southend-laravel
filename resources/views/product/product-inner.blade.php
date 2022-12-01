@@ -57,6 +57,8 @@
                 <div class="font-anek">
                     <p class="text-justify font-anek mt-0 mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quaerat doloribus nesciunt amet, laboriosam vero deleniti cum dolorem similique cupiditate ipsa totam pariatur voluptatum fuga harum asperiores qui. Facilis, quam.</p>
                     <form action="" id="cart-form">
+                        @csrf
+                        @honeypot
                         <h3 class="mt-0 text-lg font-anek mb-8">Select Size</h3>
                         <div class="selector w-full">
                             <div class="selecotr-item w-40">
@@ -82,7 +84,7 @@
                             <input type="number" value="1" name="quantity" id="quantity">
                             <h3 class="input-button add">+</h3>
                         </div>
-                        <button class="btn-add-to-cart"><span>Add to cart</span></button>
+                        <button type="submit" class="btn-add-to-cart"><span>Add to cart</span></button>
                     </form>
                 </div>
             </div>
