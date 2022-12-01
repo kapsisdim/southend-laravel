@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             array(
                 'name' => 'Admin User',
                 'email' => 'admin@southend.gr',
+                'phone' => NULL,
                 'password' => Hash::make('password'),
                 'is_admin' => 1,
                 'email_verified_at' => date('y-m-d h:m:s'),
@@ -28,6 +29,7 @@ class UserSeeder extends Seeder
             array(
                 'name' => 'Dummy User',
                 'email' => 'user@gmail.com',
+                'phone' => '6989152210',
                 'password' => NULL,
                 'is_admin' => 0,
                 'email_verified_at' => date('y-m-d h:m:s'),

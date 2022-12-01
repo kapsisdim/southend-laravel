@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="hero bg-black">
-    <img src="/storage/images/home.png" alt="hero-image">
+    <img src="{{$frontPage->main_image}}" alt="{{$frontPage->main_image}}">
 </section>
 
 @endsection

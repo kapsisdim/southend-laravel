@@ -20,7 +20,7 @@ class Shipping extends Model
 
     protected $fillable = [
         'title',
-        'value',
+        'cost',
     ];
 
     protected $hidden = [

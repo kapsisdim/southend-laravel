@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('shippings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->float('value');
+            $table->float('cost');
             $table->timestamps();
         });
     }

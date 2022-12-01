@@ -49,6 +49,21 @@ class Order extends Model
         return $this->belongsTo(Shipping::class, 'shipping_id', 'id');
     }
 
+    public function getBillingAddress()
+    {
+        return $this->belongsTo(BillingAddress::class, 'billing_address_id', 'id');
+    }
+
+    public function getShippingAddress()
+    {
+        return $this->belongsTo(ShippingAddress::class, 'shipping_address_id', 'id');
+    }
+
+    public function getCoupon()
+    {
+        return $this->belongsTo(Coupon::class, 'coupon', 'code');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
