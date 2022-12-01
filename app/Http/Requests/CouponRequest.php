@@ -26,8 +26,8 @@ class CouponRequest extends FormRequest
     {
         return [
             'code' => 'required',
-            'value' => 'required',
-            'type' => 'required',
+            'discount' => 'required',
+            'discount_type' => 'required',
             'status' => 'required',
         ];
     }

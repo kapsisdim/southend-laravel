@@ -40,8 +40,8 @@ class ShippingCrudController extends CrudController
     {
         CRUD::column('title');
         CRUD::addcolumn([
-            'name' => 'value',
-            'label' => 'Value €',
+            'name' => 'cost',
+            'label' => 'Cost €',
             'type' => 'text',
         ]);
 
@@ -64,8 +64,8 @@ class ShippingCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::addField([
-            'name' => 'value',
-            'label' => 'Value €',
+            'name' => 'cost',
+            'label' => 'Cost €',
             'type' => 'text',
         ]);
 
