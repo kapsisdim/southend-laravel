@@ -14,7 +14,6 @@ const mix = require("laravel-mix");
 mix.postCss("resources/pcss/app.pcss", "public/css")
     .js('resources/js/app.js', 'public/js/app.js')
     .js('resources/js/carousel.js', 'public/js/carousel.js')
-    .js('resources/js/cart-form.js', 'public/js/cart-form.js')
     .browserSync({
         proxy: process.env.MIX_APP_URL,
         host: process.env.MIX_APP_URL,

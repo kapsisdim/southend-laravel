@@ -18,11 +18,9 @@
         @yield('content')
         @yield('footer')
     </div>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('scripts')
 
-
-@push('scripts')
-    <script src="{{ asset('js/app.js') }}"></script>
-@endpush
 </body>
 </html>
