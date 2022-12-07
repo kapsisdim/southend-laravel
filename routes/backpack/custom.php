@@ -33,4 +33,5 @@ Route::group([
     Route::get('charts/categories', 'Charts\CategoriesChartController@response')->name('charts.categories.index');
     Route::get('charts/orders-pie', 'Charts\OrdersPieChartController@response')->name('charts.orders-pie.index');
     Route::get('charts/income', 'Charts\IncomeChartController@response')->name('charts.income.index');
+    Route::crud('contact-page', 'ContactPageCrudController');
 }); // this should be the absolute last line of this file

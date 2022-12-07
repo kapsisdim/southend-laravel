@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactPage;
+
 class ContactController extends Controller
 {
     /**
@@ -9,7 +11,10 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $contact = ContactPage::first();
+
         return view('contact', [
+            'contact' => $contact,
         ]);
     }
 }
