@@ -22,10 +22,10 @@ Route::get('/', [HomePageController::class, 'index']);
 Route::get('/product-inner', [ProductController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'store']);
 Route::get('/shop', [ShopController::class, 'index']);
 Route::get('/shop/{category}', [ShopController::class, 'category']);
 Route::get('/shop/{category}/{product}', [ShopController::class, 'product'])->name('product.show');
-// Route::get('/shop', 'App\Http\Controllers\ShopController::class, 'index']);
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');

@@ -7,7 +7,7 @@
         <div class="mb-30 w-full">
             <img src="{{ $about->image }}" alt="{{ $about->title }}" width="1480">
         </div>
-        <p class="tracking-wider md:text-lg text-justify leading-snug">{{ $about->body }}</p>
+        <p class="tracking-wider md:text-lg text-justify leading-snug">{!! $about->body !!}</p>
     </div>
 </div>
 @endsection
