@@ -1,6 +1,7 @@
 {{-- This file is used to store sidebar items, inside the Backpack admin panel --}}
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('orders') }}"><i class="la la-hammer"></i></i> Orders</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('contact-form-entries') }}"><i class="la la-envelope"></i></i> Contact Form Messages</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('categories') }}"><i class="la la-sitemap nav-icon"></i> Categories</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('collections') }}"><i class="la la-sitemap nav-icon"></i> Collections</a></li>
 <li class="nav-item nav-dropdown">
