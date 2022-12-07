@@ -17,16 +17,16 @@ class CouponSeeder extends Seeder
         $data=array(
             array(
                 'code' => 'coupon1312',
-                'value' => 10,
-                'type' => 'percentage',
+                'discount' => 10,
+                'discount_type' => 'percentage',
                 'status' => 1,
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
                 'code' => '1312coupon',
-                'value' => 20,
-                'type' => 'fixed',
+                'discount' => 20,
+                'discount_type' => 'fixed',
                 'status' => 1,
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),

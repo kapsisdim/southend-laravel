@@ -20,7 +20,7 @@ class Term extends Model
 
     protected $fillable = [
         'title',
-        'type',
+        'term_type',
         'body',
     ];
 

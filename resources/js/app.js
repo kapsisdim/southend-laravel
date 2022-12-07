@@ -4,27 +4,31 @@ const close = document.getElementById('close');
 const nav = document.getElementById('navbar-mobile');
 const overlay = document.getElementById('overlay');
 
-if (bar) {
-    bar.addEventListener('click', (e) => {
-        overlay.classList.add('sidebar');
-        nav.setAttribute('class', 'slide-in');
-        document.body.classList.add('no-scroll');
-    })
+if (window.innerWidth <= 767) {
+    if (bar) {
+        bar.addEventListener('click', (e) => {
+            overlay.classList.add('sidebar');
+            nav.setAttribute('class', 'slide-in');
+            document.body.classList.add('no-scroll');
+        })
 
-    document.body.addEventListener('click', (e) => {
-        if (!bar.contains(e.target)) {
+        if (bar.classList.contains('slide-in')) {
+            document.body.addEventListener('click', (e) => {
+                if (!bar.contains(e.target)) {
+                    overlay.classList.remove('sidebar');
+                    nav.setAttribute('class', 'slide-out');
+                    document.body.classList.remove('no-scroll');
+                }
+            })
+        }
+
+    }
+
+    if (close) {
+        close.addEventListener('click', (e) => {
             overlay.classList.remove('sidebar');
             nav.setAttribute('class', 'slide-out');
             document.body.classList.remove('no-scroll');
-        }
-    })
-
-}
-
-if (close) {
-    close.addEventListener('click', (e) => {
-        overlay.classList.remove('sidebar');
-        nav.setAttribute('class', 'slide-out');
-        document.body.classList.remove('no-scroll');
-    })
+        })
+    }
 }

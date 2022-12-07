@@ -26,7 +26,7 @@ class ShippingRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'value' => 'required',
+            'cost' => 'required',
         ];
     }
 

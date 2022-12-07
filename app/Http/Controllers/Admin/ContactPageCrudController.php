@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\TermRequest;
+use App\Http\Requests\ContactPageRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class Term.
+ * Class ContactPageCrudController
+ * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class TermCrudController extends CrudController
+class ContactPageCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
@@ -25,9 +25,9 @@ class TermCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Term::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/terms');
-        CRUD::setEntityNameStrings('Term Page', 'Term Page');
+        CRUD::setModel(\App\Models\ContactPage::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/contact-page');
+        CRUD::setEntityNameStrings('contact page', 'contact pages');
     }
 
     /**
@@ -38,17 +38,13 @@ class TermCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addcolumn([
-            'name' => 'term_type',
-            'label' => 'Type',
-            'type' => 'select_from_array',
-            'options' => [
-                'conditions' => 'Terms and Conditions',
-                'privacy' => 'Privacy Policy',
-                'cookies' => 'Cooky Policy',
-            ]
-        ]);
         CRUD::column('title');
+        CRUD::addColumn([
+            'label' => 'Image',
+            'name' => 'image',
+            'type' => 'image',
+        ]);
+        CRUD::column('subtitle');
         CRUD::addField([
             'name' => 'body',
             'label' => 'Body',
@@ -60,7 +56,7 @@ class TermCrudController extends CrudController
             ]
         ]);
 
-        /*
+        /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
@@ -75,19 +71,15 @@ class TermCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(TermRequest::class);
+        CRUD::setValidation(ContactPageRequest::class);
 
+        CRUD::field('title');
         CRUD::addField([
-            'name' => 'term_type',
-            'label' => 'Type',
-            'type' => 'select_from_array',
-            'options' => [
-              'conditions' => 'Terms and Conditions',
-              'privacy' => 'Privacy Policy',
-              'cookies' => 'Cooky Policy',
-            ]
+            'label' => 'Image',
+            'name' => 'image',
+            'type' => 'image',
         ]);
-        CRUD::addField('title');
+        CRUD::addField('subtitle');
         CRUD::addField([
             'name' => 'body',
             'label' => 'Body',
@@ -98,7 +90,8 @@ class TermCrudController extends CrudController
                 'removePlugins'        => 'resize,maximize',
             ]
         ]);
-        /*
+
+        /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
          * - CRUD::addField(['name' => 'price', 'type' => 'number']));

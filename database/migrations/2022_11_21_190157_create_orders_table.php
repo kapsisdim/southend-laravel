@@ -25,10 +25,14 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('shipping_id');
+            $table->unsignedBigInteger('billing_address_id');
+            $table->unsignedBigInteger('shipping_address_id');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('shipping_id')->references('id')->on('shippings');
+            $table->foreign('billing_address_id')->references('id')->on('billing_addresses');
+            $table->foreign('shipping_address_id')->references('id')->on('shipping_addresses');
         });
     }
 

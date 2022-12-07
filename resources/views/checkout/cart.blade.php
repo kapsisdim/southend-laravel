@@ -39,6 +39,23 @@
             <div class="lg:w-1/10 flex-1 text-end">$20.00</div>
         </div>
         {{-- @endforeach --}}
+
+    </div>
+
+    <div class="flex justify-end container mx-auto font-anek tracking-[0.2em]">
+        <div class="bg-black text-white mt-20 w-fit p-20 pt-[24px]">SUBTOTAL :</div>
+        <div class="bg-black text-white mt-20 w-fit p-20 pt-[24px]">$20.00</div>
+    </div>
+
+    <div class="flex justify-between container mx-auto font-anek tracking-[0.2em]">
+        <a href="/" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline">
+            <i class="fas fa-arrow-left mr-10"></i>
+            BACK
+        </a>
+        <a href="/checkout" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline">
+            NEXT
+            <i class="fas fa-arrow-right ml-10"></i>
+        </a>
     </div>
 </div>
 @endsection

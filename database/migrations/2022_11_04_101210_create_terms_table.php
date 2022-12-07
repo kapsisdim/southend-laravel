@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('body');
-            $table->enum('type', ['conditions', 'privacy', 'cookies']);
+            $table->enum('term_type', ['conditions', 'privacy', 'cookies']);
             $table->timestamps();
         });
     }
