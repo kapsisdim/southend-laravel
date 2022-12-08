@@ -21,13 +21,20 @@ use App\Http\Controllers\ThankYouPageController;
 */
 
 Route::get('/', [HomePageController::class, 'index'])->name('home');
-Route::get('/product-inner', [ProductController::class, 'index']);
+
 Route::get('/about', [AboutController::class, 'index']);
+
 Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
+
 Route::get('/shop', [ShopController::class, 'index']);
 Route::get('/shop/{category}', [ShopController::class, 'category']);
 Route::get('/shop/{category}/{product}', [ShopController::class, 'product'])->name('product.show');
+
+Route::get('/product-inner', [ProductController::class, 'index']);
+
+Route::get('/collections', [CollectionController::class, 'index']);
+Route::get('/collections/{collection}', [CollectionController::class, 'collection']);
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
