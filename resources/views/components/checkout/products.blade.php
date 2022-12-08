@@ -9,9 +9,10 @@
             <div class="xl:w-1/10 flex-1 text-center">REMOVE</div>
             <div class="lg:w-1/10 w-1/5 flex-1 text-end">TOTAL</div>
         </div>
+        @endif
 
 
-        @foreach ($items as $index => $item)
+        @forelse ($items as $index => $item)
         <div class="justify-between font-anek spacing-2 flex-col flex lg:flex-row text-white border-b border-[#222] flex-grow p-20 items-center tracking-[0.2em]">
             <div class="justify-self-start flex flex-col lg:flex-row items-center xl:w-3/5 w-2/5 mb-20 lg:mb-0">
                 <a class="mb-15 lg:mb-0 inline-block" href="product.html"><img src="{{ $item['product']->list_image->image }}" alt="{{ $item['product']->title }}" width="100"></a>
@@ -38,11 +39,10 @@
             </div>
             <div class="lg:w-1/10 flex-1 text-end">{{ $item['product']->price * $item['quantity']}} &#8364;</div>
         </div>
-        @endforeach
 
-        @else
+        @empty
         <div class="text-white p-40 text-center text-lg font-anek tracking-[0.2em]">Your cart is empty! Go grab some cool clothing and come back!</div>
-        @endif
+        @endforelse
     </div>
 
     @if (count($items))
@@ -53,11 +53,11 @@
     @endif
 
     <div class="flex justify-between container mx-auto font-anek tracking-[0.2em]">
-        <a href="/" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline">
+        <a href="/shop" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline">
             <i class="fas fa-arrow-left mr-10"></i>
             BACK
         </a>
-        <a href="/checkout" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline">
+        <a href="{{ route('checkout') }}" class="bg-black text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline {{ count($items) == 0 ? 'opacity-30  pointer-events-none' : ''}}">
             NEXT
             <i class="fas fa-arrow-right ml-10"></i>
         </a>

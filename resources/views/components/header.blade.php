@@ -12,7 +12,7 @@
         </a>
         <div class="text-white justify-self-end flex justify-center">
             <a ><i href="search.html" class="fas fa-search p-12 text-[20px]"></i></a>
-            <a href="cart.html"><i class="fas fa-shopping-bag py-12 px-[14px] text-[20px]"></i></a>
+            <a href="{{ route('cart') }}"><i class="fas fa-shopping-bag py-12 px-[14px] text-[20px]"></i></a>
         </div>
     </div>
 

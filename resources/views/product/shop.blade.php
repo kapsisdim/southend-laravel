@@ -16,7 +16,7 @@
                     <img src="{{ $product->list_image->image }}" alt="{{ $product->title }}">
                     <div class="des">
                         <h5>{{ $product->title }}</h5>
-                        <h4 class="text-white">{{ $product->price }}</h4>
+                        <h4 class="text-white">{{ $product->price }} &euro;</h4>
                     </div>
                 </a>
             @endforeach

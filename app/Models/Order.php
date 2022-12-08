@@ -28,6 +28,8 @@ class Order extends Model
         'total',
         'user_id',
         'shipping_id',
+        'billing_address_id',
+        'shipping_address_id'
     ];
 
     protected $hidden = [

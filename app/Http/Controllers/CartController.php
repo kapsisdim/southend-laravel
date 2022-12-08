@@ -10,9 +10,7 @@ class CartController extends Controller
 {
     public function show(Request $request)
     {
-        if (session()->has('cart.items')) {
-            [$items, $subtotal] = $this->getProductData();
-        }
+        [$items, $subtotal] = getProductData();
 
         return view('checkout.cart', compact('items', 'subtotal'));
     }
@@ -52,7 +50,7 @@ class CartController extends Controller
             session()->put("cart.items.$index.quantity", $data['quantity']);
         }
 
-        [$items, $subtotal] = $this->getProductData();
+        [$items, $subtotal] = getProductData();
 
         if ($request->wantsJson()) {
             $html = view('components.checkout.products', compact('items', 'subtotal'))->render();
@@ -70,25 +68,11 @@ class CartController extends Controller
 
         session()->forget("cart.items.$index");
 
-        [$items, $subtotal] = $this->getProductData();
+        [$items, $subtotal] = getProductData();
 
         if ($request->wantsJson()) {
             $html = view('components.checkout.products', compact('items', 'subtotal'))->render();
             return response()->json(compact('html'));
         }
-    }
-
-    public function getProductData()
-    {
-        $items = [];
-        $subtotal = 0.00;
-
-        $items = collect(session()->get('cart.items'))->map(function ($item) use (&$items, &$subtotal) {
-            $item['product'] = Product::find($item['product_id']);
-            $subtotal = $subtotal + $item['quantity'] * $item['product']->price;
-            return $item;
-        });
-
-        return [$items, $subtotal];
     }
 }
