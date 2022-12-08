@@ -25,6 +25,7 @@ class ContactFormEntry extends Model
         'last_name',
         'email',
         'message',
+        'mail_sent',
     ];
 
     protected $hidden = [
