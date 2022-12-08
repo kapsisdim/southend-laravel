@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->text('message');
+            $table->boolean('mail_sent')->default(0);
             $table->timestamps();
         });
     }

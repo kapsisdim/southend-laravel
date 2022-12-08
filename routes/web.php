@@ -21,3 +21,5 @@ Route::post('/contact', 'App\Http\Controllers\ContactController@store');
 Route::get('/shop', 'App\Http\Controllers\ShopController@index');
 Route::get('/shop/{category}', 'App\Http\Controllers\ShopController@category');
 Route::get('/shop/{category}/{product}', 'App\Http\Controllers\ShopController@product');
+Route::get('/collections', 'App\Http\Controllers\CollectionController@index');
+Route::get('/collections/{collection}', 'App\Http\Controllers\CollectionController@collection');
