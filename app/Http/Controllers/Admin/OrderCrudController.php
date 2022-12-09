@@ -104,7 +104,7 @@ class OrderCrudController extends CrudController
             'tab' => 'Shipping Info',
         ]);
         CRUD::addColumn([
-            'name' => 'getShippingAddress.ciry',
+            'name' => 'getShippingAddress.city',
             'label' => 'Shipping City',
             'type' => 'text',
             'tab' => 'Shipping Info',

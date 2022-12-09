@@ -19,7 +19,7 @@ class BillingAddress extends Model
 
     protected $fillable = [
         'address',
-        'ciry',
+        'city',
         'region',
         'post_code',
     ];
