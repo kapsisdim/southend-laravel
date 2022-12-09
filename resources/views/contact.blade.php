@@ -10,7 +10,7 @@
         </div>
         <form class="container text-white font-anek tracking-[0.2em] order-last lg:order-1 lg:w-1/2 w-full" method="post" action="{{url('/contact')}}">
             @csrf
-            {{-- @honeypot --}}
+            @honeypot
             <div class="bg-black px-20 py-30 w-full text-black">
                 @if($errors->customErrors->all() || $errors->customSuccesses->all() || $errors->all())
                     <div class="alert" id="errors-list">
