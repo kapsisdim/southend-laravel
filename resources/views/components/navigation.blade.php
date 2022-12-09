@@ -7,12 +7,14 @@
                 @endforeach
             </ul>
         </li>
-        <li><a href="/collections">COLLECTIONS</a>
+        <li><div >COLLECTIONS</div>
             <ul class="dropdown">
                 @foreach ($collections as $collection)
                     <li><a href="/collections/{{ $collection->slug }}">{{ $collection->title }}</a></li>
                 @endforeach
-            </ul></li>
+            </ul>
+        </li>
+
         @foreach ($mainMenuItems as $item)
             <li><a href="{{ $item->link }}">{{ $item->title }}</a></li>
         @endforeach

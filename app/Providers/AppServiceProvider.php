@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\Social;
 use App\Models\MenuItem;
 use App\Models\Info;
@@ -31,7 +32,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $socials = Social::orderBy('lft', 'asc')->get();
         $menuItems = MenuItem::orderBy('lft', 'asc')->get();
-        $mainMenuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)->get();
+        $mainMenuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)
+            ->whereNotIn('title', ['COLLECTIONS', 'SHOP'])->get();
         $info = Info::first();
         $categories = Category::orderBy('lft', 'asc')->get();
         $collections = Collection::orderBy('lft', 'asc')->get();

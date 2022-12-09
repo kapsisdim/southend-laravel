@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('order_number')->unique();
+            $table->string('order_number')->unique()->nullable();
             $table->text('comment')->nullable();
             $table->text('coupon')->nullable();
             $table->enum('payment_method',['cash','credit','paypal']);

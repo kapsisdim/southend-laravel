@@ -17,7 +17,7 @@ class ShippingAddressSeeder extends Seeder
         $data=array(
             array(
                 'address' => 'Thyras 29, Argyroypoli',
-                'ciry' => 'Athens',
+                'city' => 'Athens',
                 'region' => 'Attica',
                 'post_code' => '16451',
                 'created_at' => date('y-m-d h:m:s'),
