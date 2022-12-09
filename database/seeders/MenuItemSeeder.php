@@ -16,20 +16,6 @@ class MenuItemSeeder extends Seeder
     {
         $data=array(
             array(
-                'title' => 'SHOP',
-                'link' => '/shop',
-                'main_menu' => 1,
-                'created_at' => date('y-m-d h:m:s'),
-                'updated_at' => date('y-m-d h:m:s'),
-            ),
-            array(
-                'title' => 'COLLECTIONS',
-                'link' => '/collections',
-                'main_menu' => 1,
-                'created_at' => date('y-m-d h:m:s'),
-                'updated_at' => date('y-m-d h:m:s'),
-            ),
-            array(
                 'title' => 'ABOUT',
                 'link' => '/about',
                 'main_menu' => 1,
