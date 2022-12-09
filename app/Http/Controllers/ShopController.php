@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 
 class ShopController extends Controller
 {
@@ -11,7 +12,9 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $products = Product::where('status', 1)->get();
+        $products = Product::where(['status' => 1])->with('sizes')->whereHas('sizes', function ($query){
+            $query->havingRaw('sizes.amount' > 0);
+        })->get();
 
         return view('product.shop', [
             'products' => $products,
@@ -22,7 +25,10 @@ class ShopController extends Controller
      */
     public function category($category)
     {
-        $products = Product::where('status', 1)->get();
+        $category = Category::where('slug', $category)->first();
+        $products = Product::where(['status' => 1, 'collection_id' => $category->id])->with('sizes')->whereHas('sizes', function ($query){
+            $query->havingRaw('sizes.amount' > 0);
+        })->get();
 
         return view('product.shop', [
             'products' => $products,

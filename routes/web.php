@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ThankYouPageController;
 
 /*
@@ -33,8 +34,8 @@ Route::get('/shop/{category}/{product}', [ShopController::class, 'product'])->na
 
 Route::get('/product-inner', [ProductController::class, 'index']);
 
-Route::get('/collections', [CollectionController::class, 'index']);
 Route::get('/collections/{collection}', [CollectionController::class, 'collection']);
+Route::get('/collections/{collection}/{category}', [CollectionController::class, 'category']);
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
