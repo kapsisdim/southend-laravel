@@ -13,6 +13,8 @@
         <div class="flex justify-between flex-col-reverse md:flex-row items-center mt-40">
             <h6 class="font-anek text-xs font-bold">@ SOUTHEND APPAREL {{ date('Y') }}</h6>
             <ul class="flex text-base md:text-xs mb-40 md:mb-0">
+                <li><a class="px-10" href="/shop">SHOP</a></li>
+                <li><a class="px-10" href="/collections">COLLECTIONS</a></li>
                 @foreach ($menuItems as $menuItem)
                     <li><a class="px-10" href="{{$menuItem->link}}">{{$menuItem->title}}</a></li>
                 @endforeach
