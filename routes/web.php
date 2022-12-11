@@ -34,6 +34,7 @@ Route::get('/shop/{category}/{product}', [ShopController::class, 'product'])->na
 
 Route::get('/product-inner', [ProductController::class, 'index']);
 
+Route::get('/collections', [CollectionController::class, 'index']);
 Route::get('/collections/{collection}', [CollectionController::class, 'collection']);
 Route::get('/collections/{collection}/{category}', [CollectionController::class, 'category']);
 

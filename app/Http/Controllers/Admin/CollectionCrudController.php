@@ -39,7 +39,24 @@ class CollectionCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::addcolumn([
+            'label' => 'Image',
+            'name' => 'getImage.image',
+            'type' => 'image',
+            'crop' => true,
+            'aspect_ratio' => 0,
+        ]);
         CRUD::column('title');
+        CRUD::addColumn([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'options'       => [
+                1   => '<span class="badge badge-success">Published</span>',
+                0 => '<span class="badge badge-error">Unpublished</span>',
+            ],
+            'escaped' => false
+        ]);
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -59,6 +76,34 @@ class CollectionCrudController extends CrudController
         CRUD::setValidation(CollectionRequest::class);
 
         CRUD::field('title');
+        CRUD::addField(
+            [  // Select
+                'label'     => "Collection Image",
+                'type'      => 'select2',
+                'name'      => 'image_id', // the db column for the foreign key
+
+                // optional
+                // 'entity' should point to the method that defines the relationship in your Model
+                // defining entity will make Backpack guess 'model' and 'attribute'
+                'entity'    => 'getImage',
+
+                // optional - manually specify the related model and attribute
+                'model'     => "App\Models\ProductImage", // related model
+                'attribute' => 'title', // foreign key attribute that is shown to user
+            ]
+        );
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'options'       => [
+                1   => 'Published',
+                0 => 'Unublished',
+            ],
+        ]);
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:
