@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_sizes', function (Blueprint $table) {
             $table->id();
-            $table->enum('size', ['xs', 's', 'm', 'l', 'xl', 'xxl', 'one_size']);
+            $table->string('size')->unique();
             $table->timestamps();
         });
     }

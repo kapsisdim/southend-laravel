@@ -16,37 +16,37 @@ class ProductSizeSeeder extends Seeder
     {
         $data=array(
             array(
-                'size' => 'xs',
+                'size' => 'XS',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
-                'size' => 's',
+                'size' => 'S',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
-                'size' => 'm',
+                'size' => 'M',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
-                'size' => 'l',
+                'size' => 'L',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
-                'size' => 'xl',
+                'size' => 'XL',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
-                'size' => 'xxl',
+                'size' => 'XXL',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),
             array(
-                'size' => 'one_size',
+                'size' => 'One Size',
                 'created_at' => date('y-m-d h:m:s'),
                 'updated_at' => date('y-m-d h:m:s'),
             ),

@@ -241,6 +241,7 @@ class ProductCrudController extends CrudController
                     ],
                 ],
                 'pivotSelect'=> [
+                    'attribute' => 'size', // foreign key attribute that is shown to user
                     'wrapper' => [
                         'class' => 'col-md-9',
                     ],

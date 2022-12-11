@@ -60,7 +60,7 @@ class Product extends Model
     public function sizes()
     {
         return $this->belongsToMany(ProductSize::class, 'products_product_sizes')
-            ->withPivot('amount')->orderByRaw("FIELD(size, \"xs\", \"s\", \"m\", \"l\", \"xl\", \"xxl\", \"one_size\")");
+            ->withPivot('amount')->orderByRaw("FIELD(size, \"One Size\", \"XS\", \"S\", \"M\", \"L\", \"XL\", \"XXL\", \"36\", \"38\", \"40\", \"42\", \"44\", \"46\", \"48\")");
     }
 
     public function getImages()

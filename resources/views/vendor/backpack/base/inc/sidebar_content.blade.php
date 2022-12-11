@@ -8,8 +8,8 @@
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cubes"></i> Products</a>
     <ul class="nav-dropdown-items">
         <li class='nav-item'><a class='nav-link' href="{{ backpack_url('product-images') }}"><i class='nav-icon la la-images'></i> Media Manager</a></li>
-        <li class='nav-item'><a class='nav-link' href="{{ backpack_url('products') }}"><i class='nav-icon la la-cube'></i> Product List</a></li>
         <li class='nav-item'><a class='nav-link' href="{{ backpack_url('product-sizes') }}"><i class='nav-icon la la-cube'></i> Product Sizes</a></li>
+        <li class='nav-item'><a class='nav-link' href="{{ backpack_url('products') }}"><i class='nav-icon la la-cube'></i> Product List</a></li>
     </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('shipping') }}"><i class="la la-truck"></i></i> Shipping</a></li>
