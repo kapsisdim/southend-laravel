@@ -35,8 +35,8 @@ class AppServiceProvider extends ServiceProvider
         $mainMenuItems = MenuItem::orderBy('lft', 'asc')->where('main_menu', 1)
             ->whereNotIn('title', ['COLLECTIONS', 'SHOP'])->get();
         $info = Info::first();
-        $categories = Category::orderBy('lft', 'asc')->get();
-        $collections = Collection::orderBy('lft', 'asc')->get();
+        $categories = Category::where('status', 1)->orderBy('lft', 'asc')->get();
+        $collections = Collection::where('status', 1)->orderBy('lft', 'asc')->get();
         $frontPage = FrontPage::first();
 
         view()->share('socials', $socials);

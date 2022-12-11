@@ -37,20 +37,7 @@ class ProductSizeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::addcolumn([
-          'name' => 'size',
-          'label' => 'Size',
-          'type' => 'select_from_array',
-          'options' => [
-                'xs' => 'XS',
-                's' => 'S',
-                'm' => 'M',
-                'l' => 'L',
-                'xl' => 'XL',
-                'xxl' => 'XXL',
-                'one_size' => 'One Size',
-          ]
-      ]);
+        CRUD::column('size');
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -69,20 +56,7 @@ class ProductSizeCrudController extends CrudController
     {
         CRUD::setValidation(ProductSizeRequest::class);
 
-        CRUD::addField([
-          'name' => 'size',
-          'label' => 'Type',
-          'type' => 'select_from_array',
-          'options' => [
-            'xs' => 'XS',
-            's' => 'S',
-            'm' => 'M',
-            'l' => 'L',
-            'xl' => 'XL',
-            'xxl' => 'XXL',
-            'one_size' => 'One Size',
-          ]
-      ]);
+        CRUD::field('size');
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:

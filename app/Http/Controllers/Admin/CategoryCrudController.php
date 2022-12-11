@@ -40,6 +40,16 @@ class CategoryCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
+        CRUD::addColumn([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'options'       => [
+                1   => '<span class="badge badge-success">Published</span>',
+                0 => '<span class="badge badge-error">Unpublished</span>',
+            ],
+            'escaped' => false
+        ]);
 
         /*
          * Columns can be defined using the fluent syntax or array syntax:
@@ -59,6 +69,18 @@ class CategoryCrudController extends CrudController
         CRUD::setValidation(CategoryRequest::class);
 
         CRUD::field('title');
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'options'       => [
+                1   => 'Published',
+                0 => 'Unublished',
+            ],
+        ]);
 
         /*
          * Fields can be defined using the fluent syntax or array syntax:
