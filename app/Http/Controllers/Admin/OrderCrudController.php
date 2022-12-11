@@ -13,6 +13,7 @@ class OrderCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -203,6 +204,43 @@ class OrderCrudController extends CrudController
                 'element' => 'span',
                 'class' => 'badge badge-default',
             ],
+        ]);
+    }
+
+    /**
+     * Define what happens when the Update operation is loaded.
+     *
+     * @see https://backpackforlaravel.com/docs/crud-operation-update
+     * @return void
+     */
+    protected function setupUpdateOperation()
+    {
+
+        CRUD::addField([
+            'name' => 'payment_status',
+            'label' => 'Payment Status',
+            'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'options'       => [
+                0   => 'Pending',
+                1 => 'Paid',
+            ]
+        ]);
+
+        CRUD::addField([
+            'name' => 'order_status',
+            'label' => 'Order Status',
+            'type' => 'select_from_array',
+            'wrapper' => [
+                'class' => 'form-group col-md-3',
+            ],
+            'options'       => [
+                'pending'   => 'Pending',
+                'failed' => 'Failed',
+                'completed' => 'Completed',
+            ]
         ]);
     }
 }
