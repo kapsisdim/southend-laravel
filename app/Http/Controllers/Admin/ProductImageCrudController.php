@@ -27,7 +27,7 @@ class ProductImageCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\ProductImage::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/product-images');
-        CRUD::setEntityNameStrings('Product Image', 'Product Images');
+        CRUD::setEntityNameStrings('Image', 'Media Manager');
     }
 
     /**

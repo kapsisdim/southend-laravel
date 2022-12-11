@@ -22,6 +22,7 @@ class Collection extends Model
     protected $fillable = [
         'title',
         'slug',
+        'image_id',
     ];
 
     protected $hidden = [
@@ -42,5 +43,13 @@ class Collection extends Model
                 'source' => 'title',
             ],
         ];
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function getImage()
+    {
+        return $this->belongsTo(ProductImage::class, 'image_id', 'id');
     }
 }

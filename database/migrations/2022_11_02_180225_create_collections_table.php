@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->unsignedBigInteger('image_id');
             $table->string('slug')->unique();
             $table->integer('parent_id')->nullable();
             $table->integer('lft')->nullable();
