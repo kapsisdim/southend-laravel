@@ -23,6 +23,7 @@ class Collection extends Model
         'title',
         'slug',
         'image_id',
+        'status',
     ];
 
     protected $hidden = [
