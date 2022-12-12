@@ -13,6 +13,13 @@ class AboutController extends Controller
     {
         $about = About::first();
 
+        $meta['title'] = 'About us | Southend Apparel';
+        $meta['description'] = $about->subtitle;
+        $meta['image'] = $about->image;
+        $meta['url'] = url()->current();
+        $meta['isForntPage'] = 0;
+        view()->share('meta', $meta);
+
         return view('about', [
                 'about' => $about,
         ]);
