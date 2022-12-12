@@ -17,6 +17,13 @@ class ContactController extends Controller
     {
         $contact = ContactPage::first();
 
+        $meta['title'] = 'Contact Us | Southend Apparel';
+        $meta['description'] = $contact->subtitle;
+        $meta['image'] = $contact->image;
+        $meta['url'] = url()->current();
+        $meta['isForntPage'] = 0;
+        view()->share('meta', $meta);
+
         return view('contact', [
             'contact' => $contact,
         ]);
