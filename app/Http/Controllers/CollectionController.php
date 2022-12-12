@@ -11,6 +11,12 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = Collection::where('status', 1)->get();
+        $meta['title'] = 'Collections | Southend Apparel';
+        $meta['description'] = 'Southend Apparel is the best street clothing brand based in Athens';
+        $meta['image'] = '/storage/images/home.png';
+        $meta['url'] = url()->current();
+        $meta['isForntPage'] = 0;
+        view()->share('meta', $meta);
 
         return view('collections', [
             'collections' => $collections,
@@ -25,6 +31,13 @@ class CollectionController extends Controller
         $products = Product::where(['status' => 1, 'collection_id' => $collection->id])->with('sizes')->whereHas('sizes', function ($query){
             $query->havingRaw('sizes.amount' > 0);
         })->get();
+
+        $meta['title'] = $collection->title . ' | Products | Southend Apparel';
+        $meta['description'] = 'Southend Apparel is the best street clothing brand based in Athens';
+        $meta['image'] = $collection->getImage->image;
+        $meta['url'] = url()->current();
+        $meta['isForntPage'] = 0;
+        view()->share('meta', $meta);
 
         return view('product.shop', [
             'products' => $products,
@@ -42,6 +55,13 @@ class CollectionController extends Controller
         ->with('sizes')->whereHas('sizes', function ($query){
             $query->havingRaw('sizes.amount' > 0);
         })->get();
+
+        $meta['title'] = $collection->title . ' | ' . $category->title . ' | Products | Southend Apparel';
+        $meta['description'] = 'Southend Apparel is the best street clothing brand based in Athens';
+        $meta['image'] = $collection->getImage->image;
+        $meta['url'] = url()->current();
+        $meta['isForntPage'] = 0;
+        view()->share('meta', $meta);
 
         return view('product.shop', [
             'products' => $products,

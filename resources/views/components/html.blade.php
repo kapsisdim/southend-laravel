@@ -9,7 +9,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
     @stack('styles')
 
-    <title>{{ $frontPage->title}}</title>
+    <title>{{ $meta['title'] }}</title>
+    <meta name="description" content="{{ $meta['description'] }}" />
+    <meta property="og:site_name" content="Southend Apparel" />
+    @if ($meta['isForntPage'])
+        <meta property="og:type" content="front page" />
+    @endif
+    <meta property="og:url" content="{{ URL::to('/') }}" />
+    <meta property="og:title" content="{{ $meta['title'] }}" />
+    <meta property="og:description" content="{{ $meta['description'] }}" />
+    <meta property="og:image" content="{{ $meta['image'] }}" />
+    <meta name="twitter:description" content="{{ $meta['description'] }}" />
+    <meta name="twitter:title" content="{{ $meta['title'] }}" />
+    <meta name="twitter:url" content="{{ $meta['url'] }}" />
+    <meta name="twitter:image" content="{{ $meta['image'] }}" />
 </head>
 <body>
     <x-navigation-mobile class="block md:hidden"/>
