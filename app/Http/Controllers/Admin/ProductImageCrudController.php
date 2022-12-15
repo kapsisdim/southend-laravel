@@ -74,7 +74,7 @@ class ProductImageCrudController extends CrudController
             'label'        => "Product Image",
             'name'         => "image",
             'type'         => 'image',
-            'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
+            'aspect_ratio' => 0, // set to 0 to allow any aspect ratio
             'crop'         => true, // set to true to allow cropping, false to disable
         ]);
 
