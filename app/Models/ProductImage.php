@@ -57,7 +57,7 @@ class ProductImage extends Model
         // or use your own disk, defined in config/filesystems.php
         $disk = config('backpack.base.root_disk_name');
         // destination path relative to the disk above
-        $destination_path = "public/images/products";
+        $destination_path = "public/images/gallery";
 
         // if the image was erased
         if (empty($value)) {
@@ -91,7 +91,7 @@ class ProductImage extends Model
             // from the root folder; that way, what gets saved in the db
             // is the public URL (everything that comes after the domain name)
             $public_destination_path = Str::replaceFirst('public/', '', $destination_path);
-            $this->attributes[$attribute_name] = $public_destination_path.'/'.$filename;
+            $this->attributes[$attribute_name] = '/'.$public_destination_path.'/'.$filename;
         } elseif (!empty($value)) {
             // if value isn't empty, but it's not an image, assume it's the model value for that attribute.
             $this->attributes[$attribute_name] = $this->{$attribute_name};
