@@ -159,7 +159,7 @@
             <i class="fas fa-arrow-left mr-10"></i>
             BACK
         </a>
-        <button type="submit" form="checkout-form" class="bg-black hover:text-[#e94c34] text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline tracking-[0.2em] {{ count($items) == 0 ? 'opacity-30  pointer-events-none' : ''}}">COMPLETION</button>
+        <button type="submit" form="checkout-form" class="bg-black hover:text-[#e94c34] text-white mt-20 w-fit p-20 pt-[24px] flex justify-center items-baseline tracking-[0.2em] {{ count($items) == 0 ? 'opacity-30  pointer-events-none' : ''}}">SUBMIT</button>
     </div>
 </div>
 @endsection
