@@ -24,7 +24,7 @@ class OrderCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Order::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/orders');
-        CRUD::setEntityNameStrings('Orders', 'Orders');
+        CRUD::setEntityNameStrings('Order', 'Orders');
     }
 
     /**
@@ -74,6 +74,12 @@ class OrderCrudController extends CrudController
     protected function setupShowOperation()
     {
         CRUD::column('order_number');
+        CRUD::addColumn([
+            'name' => 'getProducts',
+            'label' => 'Products',
+            'type' => 'customProducts',
+            'tab' => 'Products',
+        ]);
         CRUD::addColumn([
             'name' => 'comment',
             'label' => 'Comment',
