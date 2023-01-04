@@ -10,6 +10,14 @@ class CartController extends Controller
 {
     public function show(Request $request)
     {
+
+        $meta['title'] = 'Cart | Southend Apparel';
+        $meta['description'] = 'Southend Apparel is the best street clothing brand based in Athens';
+        $meta['image'] = '/storage/images/home.png';
+        $meta['url'] = url()->current();
+        $meta['isForntPage'] = 0;
+        view()->share('meta', $meta);
+
         [$items, $subtotal] = getProductData();
 
         return view('checkout.cart', compact('items', 'subtotal'));
