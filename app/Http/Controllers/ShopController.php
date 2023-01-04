@@ -33,7 +33,7 @@ class ShopController extends Controller
     public function category($category)
     {
         $category = Category::where('slug', $category)->first();
-        $products = Product::where(['status' => 1, 'collection_id' => $category->id])->with('sizes')->whereHas('sizes', function ($query){
+        $products = Product::where(['status' => 1, 'category_id' => $category->id])->with('sizes')->whereHas('sizes', function ($query){
             $query->havingRaw('sizes.amount' > 0);
         })->get();
 
